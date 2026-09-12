@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="icon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Juenfanta" />
+  <meta name="apple-mobile-web-app-title" content="Juenfantabuster" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#050807" />
 
@@ -55,7 +55,11 @@
       display: flex;
       justify-content: center;
       min-height: 100vh;
-      padding: 6px 6px env(safe-area-inset-bottom) 6px;
+      /* PROTEZIONE DYNAMIC ISLAND: Evita che l'isola di iPhone copra il titolo */
+      padding-top: max(56px, env(safe-area-inset-top, 56px));
+      padding-bottom: max(16px, env(safe-area-inset-bottom, 16px));
+      padding-left: 8px;
+      padding-right: 8px;
     }
 
     .wrapper {
@@ -63,7 +67,7 @@
       max-width: 400px;
       display: flex;
       flex-direction: column;
-      gap: 7px; /* Compatto */
+      gap: 7px;
       overflow-x: hidden;
     }
 
@@ -75,7 +79,7 @@
       width: 100%;
     }
 
-    /* Header Compatto */
+    /* Header Navigazione */
     .header {
       padding: 6px 6px;
       text-align: center;
@@ -106,7 +110,7 @@
     }
     .round-indicator { font-size: 0.9rem; color: #fff; }
 
-    /* Rubriche Compatte */
+    /* Griglia Rubriche */
     .special-actions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -142,7 +146,7 @@
       font-size: 0.72rem;
     }
 
-    /* Lista Partite Più Compatta */
+    /* Lista Partite */
     .matches-list { display: flex; flex-direction: column; gap: 5px; width: 100%; }
     .match-row {
       display: flex;
@@ -160,7 +164,7 @@
       cursor: pointer;
     }
     .team-logo {
-      width: 36px; /* Ridotto */
+      width: 36px;
       height: 36px;
       border-radius: 50%;
       object-fit: cover;
@@ -198,7 +202,7 @@
     .score-badge { font-size: 1.05rem; color: #fff; letter-spacing: 1px; }
     .fanta-totals { font-size: 0.55rem; color: #aaa; font-family: Arial, sans-serif; }
 
-    /* Classifica Compatta */
+    /* Classifica */
     .standings-wrap { padding: 6px 8px; width: 100%; }
     .standings-header-row {
       display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;
@@ -482,7 +486,7 @@
     <div class="action-btn btn-share" id="captureStoryBtn">📸 CONDIVIDI STORY WHATSAPP</div>
   </div>
 
-  <!-- Partite (Supporta anche lo Swipe con il dito) -->
+  <!-- Partite (Swipe touch abilitato) -->
   <div class="matches-list" id="matchesContainer"></div>
 
   <!-- Classifica -->
@@ -1168,15 +1172,18 @@
     document.getElementById('recordsModal').style.display = 'flex';
   };
 
-  // CONDIVISIONE STORY CORRETTA (Zero tagli in alto)
+  // CONDIVISIONE STORY NATIVA (Zero tagli in alto con Dynamic Island)
   document.getElementById('captureStoryBtn').onclick = async () => {
     const btn = document.getElementById('captureStoryBtn');
-    btn.innerText = '⏳ GENERAZIONE IN CORSO...';
+    btn.innerText = '⏳ GENERAZIONE...';
 
-    // Riporta istantaneamente la vista in cima per evitare che iOS tagli la parte alta
     window.scrollTo(0, 0);
 
     const zone = document.getElementById('captureZone');
+    
+    // Rimuove temporaneamente il padding dell'isola durante lo scatto
+    const oldPadTop = document.body.style.paddingTop;
+    document.body.style.paddingTop = '10px';
 
     try {
       const canvas = await html2canvas(zone, {
@@ -1187,6 +1194,8 @@
         scrollX: 0,
         windowWidth: 400
       });
+
+      document.body.style.paddingTop = oldPadTop;
 
       canvas.toBlob(async (blob) => {
         const file = new File([blob], `juenfantabuster-g${currentRound}.png`, { type: 'image/png' });
@@ -1216,6 +1225,7 @@
         btn.innerText = '📸 CONDIVIDI STORY WHATSAPP';
       }, 'image/png');
     } catch (error) {
+      document.body.style.paddingTop = oldPadTop;
       alert("Errore: " + error);
       btn.innerText = '📸 CONDIVIDI STORY WHATSAPP';
     }
@@ -1361,9 +1371,7 @@
     if (currentRound < 36) { currentRound++; renderRound(currentRound); }
   };
 
-  // -------------------------------------------------------------
-  // GESTIONE DELLO SWIPE CON IL DITO SULLO SCHERMO (Touch Gesture)
-  // -------------------------------------------------------------
+  // GESTIONE SWIPE CON IL DITO (Touch Gesture per iPhone / Android)
   let touchStartX = 0;
   let touchEndX = 0;
   let touchStartY = 0;
@@ -1386,16 +1394,13 @@
     const diffX = touchEndX - touchStartX;
     const diffY = touchEndY - touchStartY;
 
-    // Assicuriamoci che sia un movimento prevalentemente orizzontale e non verticale
     if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
       if (diffX < 0) {
-        // Swipe verso sinistra -> Avanti alla prossima giornata
         if (currentRound < 36) {
           currentRound++;
           renderRound(currentRound);
         }
       } else {
-        // Swipe verso destra -> Indietro alla giornata precedente
         if (currentRound > 1) {
           currentRound--;
           renderRound(currentRound);

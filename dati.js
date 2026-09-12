@@ -1,5 +1,4 @@
-// 1. ANAGRAFICA E ROSE DELLE 8 SQUADRE (CON PRESIDENTI, MOTTI E CREDITI)
-// 1. ANAGRAFICA, PRESIDENTI, CREDITI E ROSE UFFICIALI
+// 1. ANAGRAFICA, PRESIDENTI, CREDITI E ROSE UFFICIALI (POST-SCAMBI)
 const SQUADRE_INFO = {
   "FC SCROTONE": {
     presidente: "Festa",
@@ -30,7 +29,7 @@ const SQUADRE_INFO = {
   },
   "FC ETTANERA": {
     presidente: "Ciotto",
-    motto: "Zio Benito",
+    motto: "ZioBenito",
     crediti: 11,
     por: ["Skorupski", "Carnesecchi", "Sportiello"],
     dif: ["Dragusin", "Chalobah T.", "Valdepenas", "Wesley", "Molina N.", "Holm", "Hien", "Scalvini"],
@@ -75,7 +74,7 @@ const SQUADRE_INFO = {
   }
 };
 
-// 2. BACHECA CALCIOMERCATO
+// 2. BACHECA CALCIOMERCATO UFFICIALE (SCAMBI EFFETTUATI)
 const CALCIOMERCATO = [
   {
     status: "🚨 HERE WE GO! - MAXI SCAMBIO POST-ASTA",
@@ -99,7 +98,7 @@ const CALCIOMERCATO = [
   }
 ];
 
-// 3. TOP 11 E FLOP 11 (3-4-3)
+// 3. TOP 11 E FLOP 11 (3-4-3) - CON PANCHINA INCLUSA
 const TOP_FLOP_ROUNDS = {
   1: {
     top11: {
@@ -143,7 +142,7 @@ const TOP_FLOP_ROUNDS = {
   }
 };
 
-// 4. GAZZETTA DELLO JUENFANTA
+// 4. GAZZETTA DELLO JUENFANTA (DOPPIO MVP A PARI MERITO)
 const GAZZETTA_DATA = {
   1: {
     titolo: "URAGANO VANNACHESTER: 85 PUNTI! FANTACULO ILLUSORIO PER NDICKAZZATE, SCROTONE GODE",

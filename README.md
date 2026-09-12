@@ -1,2 +1,0 @@
-# juenfantabuster
-lega del fanta

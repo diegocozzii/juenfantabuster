@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="icon.png" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Juenfantabuster" />
+  <meta name="apple-mobile-web-app-title" content="Juenfanta" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#050807" />
 
@@ -24,8 +24,8 @@
       --bg: #050807;
       --card-bg: rgba(6, 18, 12, 0.92);
       --card-border: #00cc55;
-      --glow: 0 0 8px rgba(0, 255, 102, 0.45);
-      --glow-strong: 0 0 16px rgba(0, 255, 102, 0.85);
+      --glow: 0 0 7px rgba(0, 255, 102, 0.45);
+      --glow-strong: 0 0 14px rgba(0, 255, 102, 0.85);
       --pitch-bg: #0b2f17;
       --pitch-line: rgba(0, 255, 102, 0.35);
       --pink-gazzetta: #ea5b88;
@@ -34,7 +34,6 @@
       --orange: #ff9900;
     }
 
-    /* BLOCCO TOTALE DELLO SCORRIMENTO ORIZZONTALE */
     html, body {
       width: 100%;
       max-width: 100vw;
@@ -44,138 +43,112 @@
       box-sizing: border-box;
       background-color: var(--bg);
       -webkit-text-size-adjust: 100%;
-      touch-action: pan-y; /* Impedisce il rimbalzo orizzontale su iOS */
+      touch-action: pan-y;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
     
     body {
-      background-image: radial-gradient(circle at 50% 15%, #0d2818 0%, #040806 85%);
+      background-image: radial-gradient(circle at 50% 10%, #0d2818 0%, #040806 85%);
       color: #fff;
       font-family: 'Impact', 'Arial Black', sans-serif;
       display: flex;
       justify-content: center;
       min-height: 100vh;
-      padding: 10px 8px env(safe-area-inset-bottom) 8px;
+      padding: 6px 6px env(safe-area-inset-bottom) 6px;
     }
 
     .wrapper {
       width: 100%;
-      max-width: 420px;
+      max-width: 400px;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 7px; /* Compatto */
       overflow-x: hidden;
     }
 
     .cyber-box {
       border: 1.5px solid var(--card-border);
       box-shadow: var(--glow);
-      border-radius: 12px;
+      border-radius: 10px;
       background: var(--card-bg);
       width: 100%;
     }
 
-    /* Header Navigazione */
+    /* Header Compatto */
     .header {
-      padding: 10px 8px;
+      padding: 6px 6px;
       text-align: center;
     }
     .main-title {
-      font-size: clamp(1rem, 4.2vw, 1.25rem);
+      font-size: 1.05rem;
       color: var(--neon);
       text-shadow: var(--glow-strong);
-      margin-bottom: 6px;
+      margin-bottom: 3px;
       text-transform: uppercase;
       white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
     }
     .round-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 4px;
+      padding: 0 6px;
     }
     .nav-btn {
       background: transparent;
       border: 1px solid var(--neon);
       color: var(--neon);
-      box-shadow: var(--glow);
-      padding: 4px 12px;
-      font-size: 0.82rem;
+      padding: 2px 10px;
+      font-size: 0.75rem;
       font-weight: bold;
-      border-radius: 6px;
+      border-radius: 4px;
       cursor: pointer;
     }
-    .nav-btn:active { background: var(--neon); color: #000; }
-    .round-indicator { font-size: 1rem; color: #fff; }
+    .round-indicator { font-size: 0.9rem; color: #fff; }
 
-    /* Griglia Rubriche */
+    /* Rubriche Compatte */
     .special-actions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 5px;
       width: 100%;
     }
     .action-btn {
-      border-radius: 8px;
-      padding: 8px 4px;
+      border-radius: 6px;
+      padding: 6px 2px;
       color: #fff;
       font-family: 'Impact', sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 4px;
+      gap: 3px;
       cursor: pointer;
       text-transform: uppercase;
-      text-align: center;
-      line-height: 1.1;
+      line-height: 1;
     }
-    .action-btn:active { transform: scale(0.98); }
-    .btn-gazzetta {
-      background: linear-gradient(135deg, #1f0b17, #380d23);
-      border: 1.5px solid var(--pink-gazzetta);
-    }
-    .btn-top11 {
-      background: linear-gradient(135deg, #242004, #3d3504);
-      border: 1.5px solid var(--gold);
-    }
-    .btn-scorers {
-      background: linear-gradient(135deg, #03221b, #073a2f);
-      border: 1.5px solid var(--neon);
-    }
-    .btn-h2h {
-      background: linear-gradient(135deg, #051c24, #0b2f3d);
-      border: 1.5px solid var(--cyan);
-    }
-    .btn-mercato {
-      background: linear-gradient(135deg, #201103, #3f2207);
-      border: 1.5px solid var(--orange);
-    }
-    .btn-records {
-      background: linear-gradient(135deg, #2a0808, #4c1111);
-      border: 1.5px solid #ff4444;
-    }
+    .action-btn:active { transform: scale(0.97); }
+    .btn-gazzetta { background: linear-gradient(135deg, #1f0b17, #380d23); border: 1px solid var(--pink-gazzetta); }
+    .btn-top11 { background: linear-gradient(135deg, #242004, #3d3504); border: 1px solid var(--gold); }
+    .btn-scorers { background: linear-gradient(135deg, #03221b, #073a2f); border: 1px solid var(--neon); }
+    .btn-h2h { background: linear-gradient(135deg, #051c24, #0b2f3d); border: 1px solid var(--cyan); }
+    .btn-mercato { background: linear-gradient(135deg, #201103, #3f2207); border: 1px solid var(--orange); }
+    .btn-records { background: linear-gradient(135deg, #2a0808, #4c1111); border: 1px solid #ff4444; }
     .btn-share {
       grid-column: span 2;
       background: linear-gradient(135deg, #120521, #240944);
-      border: 1.5px solid #a855f7;
-      padding: 10px;
-      font-size: 0.78rem;
+      border: 1px solid #a855f7;
+      padding: 7px;
+      font-size: 0.72rem;
     }
 
-    /* Lista Partite */
-    .matches-list { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    /* Lista Partite Più Compatta */
+    .matches-list { display: flex; flex-direction: column; gap: 5px; width: 100%; }
     .match-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 6px;
+      padding: 5px 8px;
     }
     .team-block {
       width: 36%;
@@ -183,80 +156,81 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 3px;
+      gap: 2px;
       cursor: pointer;
     }
     .team-logo {
-      width: 44px;
-      height: 44px;
+      width: 36px; /* Ridotto */
+      height: 36px;
       border-radius: 50%;
       object-fit: cover;
-      border: 1.5px solid var(--neon);
+      border: 1.2px solid var(--neon);
       background: #000;
     }
     .team-name {
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       color: #f0f0f0;
       text-transform: uppercase;
       line-height: 1.1;
-      word-break: break-word;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
     }
 
     .vs-block {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px;
-      min-width: 68px;
+      gap: 1px;
+      min-width: 60px;
       cursor: pointer;
-      padding: 3px;
-      border-radius: 6px;
+      padding: 2px;
     }
-    .vs-block:active { background: rgba(0, 255, 102, 0.2); }
     .vs-tag {
       background: var(--neon);
       color: #000;
-      font-size: 0.6rem;
-      padding: 1px 6px;
-      border-radius: 3px;
+      font-size: 0.55rem;
+      padding: 1px 5px;
+      border-radius: 2px;
       font-weight: 900;
     }
-    .score-badge { font-size: 1.15rem; color: #fff; letter-spacing: 1px; }
-    .fanta-totals { font-size: 0.58rem; color: #aaa; font-family: Arial, sans-serif; }
+    .score-badge { font-size: 1.05rem; color: #fff; letter-spacing: 1px; }
+    .fanta-totals { font-size: 0.55rem; color: #aaa; font-family: Arial, sans-serif; }
 
-    /* Classifica */
-    .standings-wrap { padding: 10px 8px; width: 100%; overflow: hidden; }
+    /* Classifica Compatta */
+    .standings-wrap { padding: 6px 8px; width: 100%; }
     .standings-header-row {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;
     }
     .standings-switch-btn {
       background: #112216; border: 1px solid var(--neon); color: var(--neon);
-      font-family: 'Impact', sans-serif; font-size: 0.62rem; padding: 3px 6px;
-      border-radius: 4px; cursor: pointer; white-space: nowrap;
+      font-family: 'Impact', sans-serif; font-size: 0.58rem; padding: 2px 5px;
+      border-radius: 3px; cursor: pointer; white-space: nowrap;
     }
-    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; table-layout: fixed; }
+    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; table-layout: fixed; }
     .standings-table th {
       color: var(--neon);
-      padding: 4px 2px;
-      font-size: 0.65rem;
+      padding: 3px 2px;
+      font-size: 0.6rem;
       border-bottom: 1px solid rgba(0, 255, 102, 0.4);
     }
     .standings-table td {
-      padding: 6px 2px;
+      padding: 4px 2px;
       border-bottom: 1px solid rgba(0, 255, 102, 0.15);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .col-pos { text-align: center; width: 22px; color: var(--neon); font-size: 0.85rem; }
+    .col-pos { text-align: center; width: 20px; color: var(--neon); font-size: 0.78rem; }
     .col-team { text-align: left; }
-    .col-form { text-align: center; width: 55px; }
+    .col-form { text-align: center; width: 50px; }
     .form-dots { display: flex; gap: 2px; justify-content: center; }
-    .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+    .dot { width: 5px; height: 5px; border-radius: 50%; display: inline-block; }
     .dot-w { background: #00ff66; }
     .dot-d { background: #ffcc00; }
     .dot-l { background: #ff3344; }
-    .col-pts { text-align: center; width: 32px; font-size: 0.85rem; color: #fff; }
+    .col-pts { text-align: center; width: 28px; font-size: 0.78rem; color: #fff; }
 
     /* Modali */
     .modal {
@@ -266,21 +240,21 @@
       background: rgba(0, 0, 0, 0.94);
       justify-content: center;
       align-items: center;
-      padding: 10px;
+      padding: 8px;
       z-index: 200;
     }
     .modal-box {
       width: 100%;
-      max-width: 400px;
-      max-height: 90vh;
+      max-width: 380px;
+      max-height: 88vh;
       background: #09120c;
-      border: 2px solid var(--neon);
+      border: 1.5px solid var(--neon);
       box-shadow: var(--glow-strong);
-      border-radius: 12px;
-      padding: 12px;
+      border-radius: 10px;
+      padding: 10px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       overflow-y: auto;
       -webkit-overflow-scrolling: touch;
     }
@@ -289,29 +263,29 @@
       justify-content: space-between;
       align-items: center;
       border-bottom: 1px solid var(--neon);
-      padding-bottom: 5px;
+      padding-bottom: 4px;
       color: var(--neon);
-      font-size: 0.88rem;
+      font-size: 0.82rem;
     }
     .close-btn {
       background: none;
       border: none;
       color: var(--neon);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       cursor: pointer;
       line-height: 1;
     }
 
-    .pitch-tabs { display: flex; gap: 6px; }
+    .pitch-tabs { display: flex; gap: 5px; }
     .pitch-tab-btn {
       flex: 1;
-      padding: 6px;
+      padding: 5px;
       background: #112015;
       border: 1px solid var(--card-border);
       color: #fff;
       font-family: 'Impact', sans-serif;
-      font-size: 0.75rem;
-      border-radius: 6px;
+      font-size: 0.7rem;
+      border-radius: 5px;
       cursor: pointer;
     }
     .pitch-tab-btn.active { background: var(--neon); color: #000; }
@@ -319,16 +293,16 @@
     /* Campetto */
     .soccer-pitch {
       width: 100%;
-      height: 350px;
+      height: 320px;
       background-color: var(--pitch-bg);
-      background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 30px, transparent 30px, transparent 60px);
-      border: 2px solid var(--pitch-line);
-      border-radius: 10px;
+      background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 25px, transparent 25px, transparent 50px);
+      border: 1.5px solid var(--pitch-line);
+      border-radius: 8px;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 8px 2px;
+      padding: 6px 2px;
     }
     .pitch-line-center {
       position: absolute;
@@ -340,8 +314,8 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 65px; height: 65px;
-      border: 1.5px solid var(--pitch-line);
+      width: 55px; height: 55px;
+      border: 1.2px solid var(--pitch-line);
       border-radius: 50%;
     }
     .pitch-row {
@@ -355,20 +329,20 @@
       flex-direction: column;
       align-items: center;
       gap: 1px;
-      min-width: 44px;
-      max-width: 70px;
+      min-width: 40px;
+      max-width: 65px;
       text-align: center;
     }
     .player-shirt {
-      width: 20px;
-      height: 20px;
+      width: 18px;
+      height: 18px;
       border-radius: 50%;
       background: #000;
-      border: 1.5px solid var(--neon);
+      border: 1.2px solid var(--neon);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.6rem;
+      font-size: 0.55rem;
       color: var(--neon);
       font-family: Arial, sans-serif;
       font-weight: bold;
@@ -377,10 +351,10 @@
     .player-shirt.flop-shirt { border-color: #ff3344; color: #ff3344; }
     .player-name {
       font-family: Arial, sans-serif;
-      font-size: 0.58rem;
+      font-size: 0.55rem;
       font-weight: bold;
       color: #fff;
-      background: rgba(0, 0, 0, 0.8);
+      background: rgba(0, 0, 0, 0.85);
       padding: 1px 2px;
       border-radius: 2px;
       white-space: nowrap;
@@ -388,11 +362,11 @@
       text-overflow: ellipsis;
       max-width: 100%;
     }
-    .player-team-tag { font-size: 0.5rem; color: #aaa; font-family: Arial, sans-serif; }
-    .bench-tag { font-size: 0.45rem; background: #ffaa00; color: #000; font-weight: bold; padding: 0 2px; border-radius: 2px; }
-    .player-badges { display: flex; gap: 2px; font-family: Arial, sans-serif; font-size: 0.55rem; }
-    .voto-box { background: #252e38; color: #fff; padding: 1px 2px; border-radius: 2px; }
-    .fanta-box { background: #0088cc; color: #fff; padding: 1px 2px; border-radius: 2px; font-weight: bold; }
+    .player-team-tag { font-size: 0.48rem; color: #aaa; font-family: Arial, sans-serif; }
+    .bench-tag { font-size: 0.42rem; background: #ffaa00; color: #000; font-weight: bold; padding: 0 1px; border-radius: 2px; }
+    .player-badges { display: flex; gap: 2px; font-family: Arial, sans-serif; font-size: 0.52rem; }
+    .voto-box { background: #252e38; color: #fff; padding: 0 2px; border-radius: 2px; }
+    .fanta-box { background: #0088cc; color: #fff; padding: 0 2px; border-radius: 2px; font-weight: bold; }
     .fanta-box.bonus { background: #00aa44; }
     .fanta-box.malus { background: #cc2200; }
 
@@ -400,36 +374,36 @@
     .bench-section {
       background: rgba(0, 20, 10, 0.85);
       border: 1px solid var(--card-border);
-      border-radius: 8px;
-      padding: 6px;
+      border-radius: 6px;
+      padding: 5px;
     }
     .bench-title {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: var(--neon);
       text-align: center;
       border-bottom: 1px solid rgba(0, 255, 102, 0.3);
       padding-bottom: 2px;
-      margin-bottom: 4px;
+      margin-bottom: 3px;
     }
     .bench-list {
       display: flex;
       flex-direction: column;
-      gap: 3px;
-      max-height: 120px;
+      gap: 2px;
+      max-height: 100px;
       overflow-y: auto;
       font-family: Arial, sans-serif;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
     }
     .bench-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2px 4px;
+      padding: 2px 3px;
       background: rgba(255, 255, 255, 0.03);
-      border-radius: 3px;
+      border-radius: 2px;
     }
     .bench-player-info { display: flex; align-items: center; gap: 4px; }
-    .bench-role { font-weight: bold; font-size: 0.6rem; width: 12px; text-align: center; }
+    .bench-role { font-weight: bold; font-size: 0.58rem; width: 10px; text-align: center; }
     .role-p { color: #f59e0b; }
     .role-d { color: #10b981; }
     .role-c { color: #3b82f6; }
@@ -437,50 +411,50 @@
 
     /* Scheda Squadra */
     .team-profile-header {
-      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
-      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 6px;
+      display: flex; align-items: center; gap: 8px; margin-bottom: 6px;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 5px;
     }
     .team-profile-logo {
-      width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
-      border: 2px solid var(--neon);
+      width: 44px; height: 44px; border-radius: 50%; object-fit: cover;
+      border: 1.5px solid var(--neon);
     }
-    .team-profile-info { font-family: Arial, sans-serif; font-size: 0.72rem; }
-    .roster-role-group { margin-bottom: 6px; font-family: Arial, sans-serif; }
+    .team-profile-info { font-family: Arial, sans-serif; font-size: 0.68rem; }
+    .roster-role-group { margin-bottom: 5px; font-family: Arial, sans-serif; }
     .roster-role-title {
-      color: var(--neon); font-size: 0.7rem; font-weight: bold;
-      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 1px; margin-bottom: 3px;
+      color: var(--neon); font-size: 0.65rem; font-weight: bold;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 1px; margin-bottom: 2px;
     }
     .roster-player-tags { display: flex; flex-wrap: wrap; gap: 3px; }
-    .roster-tag { background: rgba(255, 255, 255, 0.08); padding: 2px 6px; border-radius: 3px; font-size: 0.68rem; }
+    .roster-tag { background: rgba(255, 255, 255, 0.08); padding: 2px 5px; border-radius: 3px; font-size: 0.62rem; }
 
     /* Gazzetta */
-    .gazzetta-box { font-family: Arial, sans-serif; font-size: 0.75rem; display: flex; flex-direction: column; gap: 8px; color: #e5e5e5; }
-    .gazzetta-headline { font-family: 'Impact', sans-serif; color: var(--pink-gazzetta); font-size: 1rem; line-height: 1.2; }
-    .gazzetta-lead { font-style: italic; border-left: 3px solid var(--pink-gazzetta); padding-left: 6px; color: #ccc; }
-    .gaz-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(234, 91, 136, 0.35); border-radius: 6px; padding: 6px; }
-    .gaz-card-title { color: var(--pink-gazzetta); font-weight: bold; margin-bottom: 3px; font-size: 0.7rem; }
+    .gazzetta-box { font-family: Arial, sans-serif; font-size: 0.72rem; display: flex; flex-direction: column; gap: 6px; color: #e5e5e5; }
+    .gazzetta-headline { font-family: 'Impact', sans-serif; color: var(--pink-gazzetta); font-size: 0.95rem; line-height: 1.2; }
+    .gazzetta-lead { font-style: italic; border-left: 2px solid var(--pink-gazzetta); padding-left: 5px; color: #ccc; }
+    .gaz-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(234, 91, 136, 0.35); border-radius: 5px; padding: 5px; }
+    .gaz-card-title { color: var(--pink-gazzetta); font-weight: bold; margin-bottom: 2px; font-size: 0.65rem; }
 
     /* Matrice H2H */
     .matrix-wrap { overflow-x: auto; width: 100%; }
-    .matrix-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.62rem; text-align: center; }
-    .matrix-table th, .matrix-table td { border: 1px solid rgba(0, 217, 255, 0.3); padding: 4px 2px; min-width: 28px; }
+    .matrix-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.6rem; text-align: center; }
+    .matrix-table th, .matrix-table td { border: 1px solid rgba(0, 217, 255, 0.3); padding: 3px 2px; min-width: 25px; }
     .matrix-table th { background: rgba(0, 217, 255, 0.15); color: var(--cyan); }
     .matrix-cell-self { background: rgba(255, 255, 255, 0.05); }
 
     /* Marcatori */
-    .scorers-list { display: flex; flex-direction: column; gap: 5px; font-family: Arial, sans-serif; }
-    .scorer-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.04); padding: 5px 8px; border-radius: 4px; font-size: 0.72rem; }
-    .scorer-info { display: flex; align-items: center; gap: 6px; }
-    .scorer-mini-logo { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
-    .scorer-goals { color: #ffee00; font-weight: bold; font-size: 0.8rem; }
+    .scorers-list { display: flex; flex-direction: column; gap: 4px; font-family: Arial, sans-serif; }
+    .scorer-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.04); padding: 4px 6px; border-radius: 4px; font-size: 0.68rem; }
+    .scorer-info { display: flex; align-items: center; gap: 5px; }
+    .scorer-mini-logo { width: 18px; height: 18px; border-radius: 50%; object-fit: cover; }
+    .scorer-goals { color: #ffee00; font-weight: bold; font-size: 0.75rem; }
 
     /* Mercato */
-    .trade-card { background: rgba(255, 153, 0, 0.06); border: 1px solid rgba(255, 153, 0, 0.4); border-radius: 6px; padding: 8px; font-family: Arial, sans-serif; font-size: 0.7rem; margin-bottom: 6px; }
-    .trade-header { color: var(--orange); font-weight: bold; font-family: 'Impact', sans-serif; font-size: 0.78rem; margin-bottom: 2px; }
+    .trade-card { background: rgba(255, 153, 0, 0.06); border: 1px solid rgba(255, 153, 0, 0.4); border-radius: 5px; padding: 6px; font-family: Arial, sans-serif; font-size: 0.68rem; margin-bottom: 4px; }
+    .trade-header { color: var(--orange); font-weight: bold; font-family: 'Impact', sans-serif; font-size: 0.72rem; margin-bottom: 2px; }
 
     /* Record */
-    .record-item { background: rgba(255, 68, 68, 0.06); border: 1px solid rgba(255, 68, 68, 0.35); border-radius: 6px; padding: 6px 8px; font-family: Arial, sans-serif; font-size: 0.72rem; margin-bottom: 5px; }
-    .record-label { color: #ff5555; font-weight: bold; font-size: 0.65rem; margin-bottom: 2px; }
+    .record-item { background: rgba(255, 68, 68, 0.06); border: 1px solid rgba(255, 68, 68, 0.35); border-radius: 5px; padding: 5px 6px; font-family: Arial, sans-serif; font-size: 0.68rem; margin-bottom: 4px; }
+    .record-label { color: #ff5555; font-weight: bold; font-size: 0.6rem; margin-bottom: 1px; }
   </style>
 </head>
 <body>
@@ -497,7 +471,7 @@
     </div>
   </div>
 
-  <!-- Griglia Pulsanti Rubriche -->
+  <!-- Griglia Rubriche -->
   <div class="special-actions-grid">
     <div class="action-btn btn-gazzetta" id="openGazzettaBtn">📰 LA GAZZETTA</div>
     <div class="action-btn btn-top11" id="openTop11Btn">⭐ TOP 11 (3-4-3)</div>
@@ -505,23 +479,23 @@
     <div class="action-btn btn-h2h" id="openH2hBtn">⚔️ SCONTRI DIRETTI</div>
     <div class="action-btn btn-mercato" id="openMercatoBtn">🔄 CALCIOMERCATO</div>
     <div class="action-btn btn-records" id="openRecordsBtn">🔥 RECORD LEGA</div>
-    <div class="action-btn btn-share" id="captureStoryBtn">📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)</div>
+    <div class="action-btn btn-share" id="captureStoryBtn">📸 CONDIVIDI STORY WHATSAPP</div>
   </div>
 
-  <!-- Partite -->
+  <!-- Partite (Supporta anche lo Swipe con il dito) -->
   <div class="matches-list" id="matchesContainer"></div>
 
-  <!-- Classifica con Switch Punti Reali / Fantapunti -->
+  <!-- Classifica -->
   <div class="cyber-box standings-wrap">
     <div class="standings-header-row">
-      <span id="standingsModeTitle" style="color: var(--neon); font-size: 0.75rem;">CLASSIFICA UFFICIALE</span>
-      <button class="standings-switch-btn" id="toggleStandingsModeBtn">📊 FANTAPUNTI SOMMATI</button>
+      <span id="standingsModeTitle" style="color: var(--neon); font-size: 0.72rem;">CLASSIFICA UFFICIALE</span>
+      <button class="standings-switch-btn" id="toggleStandingsModeBtn">📊 FANTAPUNTI</button>
     </div>
     <table class="standings-table">
       <thead>
         <tr>
           <th class="col-pos">POS</th>
-          <th class="col-team">SQUADRA (SCHEDA)</th>
+          <th class="col-team">SQUADRA</th>
           <th class="col-form" id="standingsMetricHeader">FORMA</th>
           <th class="col-pts" id="standingsPointsHeader">PT</th>
         </tr>
@@ -532,7 +506,7 @@
 
 </div>
 
-<!-- MODALE FORMAZIONI -->
+<!-- MODALE MATCH -->
 <div class="modal" id="lineupModal">
   <div class="modal-box">
     <div class="modal-header">
@@ -558,7 +532,7 @@
   </div>
 </div>
 
-<!-- MODALE TOP 11 / FLOP 11 -->
+<!-- MODALE TOP 11 -->
 <div class="modal" id="top11Modal">
   <div class="modal-box" style="border-color: var(--gold);">
     <div class="modal-header" style="color: var(--gold); border-color: var(--gold);">
@@ -609,10 +583,10 @@
       <span>🔄 CALCIOMERCATO</span>
       <button class="close-btn" id="closeMercatoModal" style="color: var(--orange);">&times;</button>
     </div>
-    <div style="background: rgba(255, 153, 0, 0.12); border: 1.5px solid var(--orange); border-radius: 8px; padding: 8px; font-family: Arial, sans-serif; font-size: 0.7rem; margin-bottom: 4px;">
-      <div style="color: var(--orange); font-family: 'Impact', sans-serif; font-size: 0.8rem; margin-bottom: 2px;">📌 REGOLAMENTO MERCATO</div>
-      <div style="color: #fff; font-weight: bold; margin-bottom: 2px;">SCAMBI NAZIONALI ⇄ ASTA RIPARAZIONE</div>
-      <div style="color: #ddd; line-height: 1.3;">
+    <div style="background: rgba(255, 153, 0, 0.12); border: 1.5px solid var(--orange); border-radius: 6px; padding: 6px; font-family: Arial, sans-serif; font-size: 0.65rem; margin-bottom: 4px;">
+      <div style="color: var(--orange); font-family: 'Impact', sans-serif; font-size: 0.75rem; margin-bottom: 2px;">📌 REGOLAMENTO MERCATO</div>
+      <div style="color: #fff; font-weight: bold; margin-bottom: 1px;">SCAMBI NAZIONALI ⇄ ASTA RIPARAZIONE</div>
+      <div style="color: #ddd; line-height: 1.25;">
         Scambi attivi <strong>esclusivamente nelle soste delle Nazionali</strong>.<br>
         <strong>Asta di Riparazione</strong> a fine gennaio dopo la chiusura del mercato reale!
       </div>
@@ -654,10 +628,9 @@
   </div>
 </div>
 
-<!-- Script Dati -->
+<!-- Caricamento file dati.js -->
 <script src="dati.js"></script>
 
-<!-- Logica App -->
 <script>
   const TEAMS = {
     "JAGERBOMBERAS": { name: "JAGERBOMBERAS", logo: "loghi/jagerbomberas.jpeg", tag: "JAG" },
@@ -811,7 +784,7 @@
         const formDotsHtml = lastForm.length ? lastForm.map(res => {
           let cls = res === 'W' ? 'dot-w' : (res === 'D' ? 'dot-d' : 'dot-l');
           return `<span class="dot ${cls}"></span>`;
-        }).join('') : '<span style="color:#666; font-size:0.55rem;">-</span>';
+        }).join('') : '<span style="color:#666; font-size:0.5rem;">-</span>';
 
         tr.innerHTML = `
           <td class="col-pos">${i + 1}</td>
@@ -829,18 +802,18 @@
 
       standings.forEach((row, i) => {
         const tr = document.createElement('tr');
-        let statusBadge = '<span style="color:#aaa; font-size:0.6rem;">EQUILIBRIO</span>';
+        let statusBadge = '<span style="color:#aaa; font-size:0.55rem;">EQUILIBRIO</span>';
         if (row.fantaTot >= 75 && row.pts === 0) {
-          statusBadge = '<span style="color:#ff4444; font-size:0.6rem; font-weight:bold;">💀 SFIGA</span>';
+          statusBadge = '<span style="color:#ff4444; font-size:0.55rem; font-weight:bold;">💀 SFIGA</span>';
         } else if (row.fantaTot < 70 && row.pts >= 3) {
-          statusBadge = '<span style="color:#00ff66; font-size:0.6rem; font-weight:bold;">🍀 CULO</span>';
+          statusBadge = '<span style="color:#00ff66; font-size:0.55rem; font-weight:bold;">🍀 CULO</span>';
         }
 
         tr.innerHTML = `
           <td class="col-pos">${i + 1}</td>
           <td class="col-team" onclick="openRoster('${row.team}')">${row.team}</td>
           <td class="col-form">${statusBadge}</td>
-          <td class="col-pts" style="font-size: 0.75rem; color: #ffee00;">${row.fantaTot.toFixed(1)}</td>
+          <td class="col-pts" style="font-size: 0.72rem; color: #ffee00;">${row.fantaTot.toFixed(1)}</td>
         `;
         tbody.appendChild(tr);
       });
@@ -852,7 +825,7 @@
     renderStandings(currentRound);
   };
 
-  // Disegno Formazioni Partita
+  // Formazioni
   function drawPitch(teamObj) {
     const rowPor = document.getElementById('rowPor');
     const rowDif = document.getElementById('rowDif');
@@ -864,7 +837,7 @@
     benchList.innerHTML = '';
 
     if (!teamObj) {
-      rowCen.innerHTML = '<div style="font-family: Arial; font-size: 0.8rem; color: #88ffaa;">Formazione non inserita</div>';
+      rowCen.innerHTML = '<div style="font-family: Arial; font-size: 0.75rem; color: #88ffaa;">Formazione non inserita</div>';
       benchList.innerHTML = '<div style="color: #aaa; text-align: center;">Nessun dato panchina</div>';
       return;
     }
@@ -942,7 +915,7 @@
     rPor.innerHTML = ''; rDif.innerHTML = ''; rCen.innerHTML = ''; rAtt.innerHTML = '';
 
     if (!data) {
-      rCen.innerHTML = '<div style="font-family: Arial; font-size: 0.8rem; color: #88ffaa;">Dati non disponibili</div>';
+      rCen.innerHTML = '<div style="font-family: Arial; font-size: 0.75rem; color: #88ffaa;">Dati non disponibili</div>';
       return;
     }
 
@@ -1039,7 +1012,7 @@
       .sort((a,b) => b.goals - a.goals);
 
     if (!sortedScorers.length) {
-      box.innerHTML = '<div style="text-align:center; padding:12px;">Nessun gol registrato finora.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:10px;">Nessun gol registrato.</div>';
       return;
     }
 
@@ -1049,11 +1022,11 @@
       div.className = 'scorer-row';
       div.innerHTML = `
         <div class="scorer-info">
-          <strong style="color:var(--neon); width:16px;">${idx + 1}.</strong>
+          <strong style="color:var(--neon); width:14px;">${idx + 1}.</strong>
           ${logoUrl ? `<img src="${logoUrl}" class="scorer-mini-logo" alt="${s.team}">` : ''}
           <div>
             <div>${s.name}</div>
-            <div style="font-size:0.58rem; color:#aaa;">${s.team}</div>
+            <div style="font-size:0.55rem; color:#aaa;">${s.team}</div>
           </div>
         </div>
         <div class="scorer-goals">${s.goals} ⚽</div>
@@ -1120,7 +1093,7 @@
     const trades = (typeof CALCIOMERCATO !== 'undefined') ? CALCIOMERCATO : [];
 
     if (!trades.length) {
-      box.innerHTML = '<div style="text-align:center; padding:12px; color:#aaa;">Nessun nuovo scambio.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:10px; color:#aaa;">Nessun nuovo scambio.</div>';
     } else {
       trades.forEach(t => {
         const div = document.createElement('div');
@@ -1128,8 +1101,8 @@
         div.innerHTML = `
           <div class="trade-header">${t.status}</div>
           <div style="font-weight:bold; margin-bottom:2px; color:#fff;">${t.squadraA} ⇄ ${t.squadraB}</div>
-          <div style="color:#ddd; margin-bottom:3px; line-height:1.3;">${t.dettagli}</div>
-          <div style="font-size:0.6rem; color:#aaa;">Data: ${t.data}</div>
+          <div style="color:#ddd; margin-bottom:2px; line-height:1.25;">${t.dettagli}</div>
+          <div style="font-size:0.55rem; color:#aaa;">Data: ${t.data}</div>
         `;
         box.appendChild(div);
       });
@@ -1195,28 +1168,29 @@
     document.getElementById('recordsModal').style.display = 'flex';
   };
 
-  // CONDIVISIONE STORY NATIVA MOBILE (iOS / Android)
+  // CONDIVISIONE STORY CORRETTA (Zero tagli in alto)
   document.getElementById('captureStoryBtn').onclick = async () => {
     const btn = document.getElementById('captureStoryBtn');
     btn.innerText = '⏳ GENERAZIONE IN CORSO...';
 
+    // Riporta istantaneamente la vista in cima per evitare che iOS tagli la parte alta
+    window.scrollTo(0, 0);
+
     const zone = document.getElementById('captureZone');
-    
+
     try {
       const canvas = await html2canvas(zone, {
         scale: 2,
         useCORS: true,
         backgroundColor: '#050807',
-        scrollX: 0,
         scrollY: 0,
-        windowWidth: 420
+        scrollX: 0,
+        windowWidth: 400
       });
 
-      // Conversione in Blob per Web Share API nativa iOS/Android
       canvas.toBlob(async (blob) => {
         const file = new File([blob], `juenfantabuster-g${currentRound}.png`, { type: 'image/png' });
-        
-        // Se il telefono supporta la condivisione nativa dei file (Safari iOS, Chrome Android)
+
         if (navigator.canShare && navigator.canShare({ files: [file] })) {
           try {
             await navigator.share({
@@ -1224,29 +1198,26 @@
               title: `Juenfantabuster - Giornata ${currentRound}`,
               text: `Risultati ufficiali Giornata ${currentRound}!`
             });
-            btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+            btn.innerText = '📸 CONDIVIDI STORY WHATSAPP';
             return;
-          } catch (err) {
-            // Se l'utente annulla la condivisione
-          }
+          } catch (err) {}
         }
 
-        // Fallback per browser desktop o browser che bloccano la Share API: Download classico o apertura in nuova scheda
         const imageURL = canvas.toDataURL("image/png");
         const win = window.open();
         if (win) {
-          win.document.write(`<body style="margin:0;background:#050807;display:flex;justify-content:center;align-items:center;min-height:100vh;"><img src="${imageURL}" style="max-width:100%;border-radius:12px;box-shadow:0 0 15px #00ff66;" alt="Story Juenfanta"/><p style="color:#fff;font-family:sans-serif;position:fixed;bottom:10px;background:rgba(0,0,0,0.8);padding:6px 12px;border-radius:6px;">Tieni premuto sull'immagine per salvarla o condividerla</p></body>`);
+          win.document.write(`<body style="margin:0;background:#050807;display:flex;justify-content:center;align-items:center;min-height:100vh;"><img src="${imageURL}" style="max-width:100%;border-radius:10px;box-shadow:0 0 15px #00ff66;"/><p style="color:#fff;font-family:sans-serif;position:fixed;bottom:10px;background:rgba(0,0,0,0.8);padding:5px 10px;border-radius:5px;font-size:12px;">Tieni premuto per salvare l'immagine</p></body>`);
         } else {
           const link = document.createElement('a');
           link.download = `juenfantabuster-g${currentRound}.png`;
           link.href = imageURL;
           link.click();
         }
-        btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+        btn.innerText = '📸 CONDIVIDI STORY WHATSAPP';
       }, 'image/png');
     } catch (error) {
-      alert("Errore nella generazione dell'immagine: " + error);
-      btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+      alert("Errore: " + error);
+      btn.innerText = '📸 CONDIVIDI STORY WHATSAPP';
     }
   };
 
@@ -1258,7 +1229,7 @@
     container.innerHTML = '';
 
     if (!info) {
-      container.innerHTML = '<div style="padding:8px;">Dati non registrati</div>';
+      container.innerHTML = '<div style="padding:6px;">Dati non registrati</div>';
     } else {
       const logoUrl = TEAMS[teamName]?.logo || '';
       const creditiColor = info.crediti >= 0 ? '#00ff66' : '#ff4444';
@@ -1268,9 +1239,9 @@
         <div class="team-profile-header">
           ${logoUrl ? `<img src="${logoUrl}" class="team-profile-logo" alt="${teamName}">` : ''}
           <div class="team-profile-info">
-            <div style="font-weight:bold; font-size:0.8rem; color:#fff;">👤 ${info.presidente}</div>
+            <div style="font-weight:bold; font-size:0.75rem; color:#fff;">👤 ${info.presidente}</div>
             <div style="font-style:italic; color:#aaa; margin: 1px 0;">"${info.motto}"</div>
-            <div style="font-size:0.7rem;">💰 Crediti: <strong style="color:${creditiColor};">${creditiSegno} FM</strong></div>
+            <div style="font-size:0.65rem;">💰 Crediti: <strong style="color:${creditiColor};">${creditiSegno} FM</strong></div>
           </div>
         </div>
       `;
@@ -1306,7 +1277,7 @@
     box.innerHTML = '';
 
     if (!report) {
-      box.innerHTML = '<div style="text-align:center; padding:15px;">Nessuna edizione della Gazzetta.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:10px;">Nessuna edizione della Gazzetta.</div>';
     } else {
       let mvpList = [];
       if (report.mvps && Array.isArray(report.mvps)) {
@@ -1316,7 +1287,7 @@
       }
 
       const mvpHtml = mvpList.map(m => `
-        <div style="margin-bottom: 4px;">
+        <div style="margin-bottom: 3px;">
           <strong>⭐ ${m.nome} (${m.punti ? m.punti + ' pt' : ''})</strong>: ${m.motivazione}
         </div>
       `).join('');
@@ -1342,12 +1313,12 @@
 
         <div class="gaz-card">
           <div class="gaz-card-title">🪑 IL RIMPIANTO IN PANCHINA</div>
-          ${report.gufataPanchina.map(g => `<div style="margin-bottom:4px;">• <strong>${g.mister}</strong>: ${g.rimpianto}</div>`).join('')}
+          ${report.gufataPanchina.map(g => `<div style="margin-bottom:3px;">• <strong>${g.mister}</strong>: ${g.rimpianto}</div>`).join('')}
         </div>
 
         <div class="gaz-card">
           <div class="gaz-card-title">✍️ PAGELLONE</div>
-          ${report.pagellone.map(p => `<div style="margin-bottom:4px;"><strong>${p.nome} (Voto ${p.voto})</strong>: ${p.commento}</div>`).join('')}
+          ${report.pagellone.map(p => `<div style="margin-bottom:3px;"><strong>${p.nome} (Voto ${p.voto})</strong>: ${p.commento}</div>`).join('')}
         </div>
       `;
     }
@@ -1382,13 +1353,56 @@
     drawPitch(activeMatch.away11);
   };
 
-  // Navigazione Giornate
+  // Navigazione Giornate tramite Tasti
   document.getElementById('prevBtn').onclick = () => {
     if (currentRound > 1) { currentRound--; renderRound(currentRound); }
   };
   document.getElementById('nextBtn').onclick = () => {
     if (currentRound < 36) { currentRound++; renderRound(currentRound); }
   };
+
+  // -------------------------------------------------------------
+  // GESTIONE DELLO SWIPE CON IL DITO SULLO SCHERMO (Touch Gesture)
+  // -------------------------------------------------------------
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let touchStartY = 0;
+  let touchEndY = 0;
+
+  const swipeZone = document.getElementById('matchesContainer');
+
+  swipeZone.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    touchStartY = e.changedTouches[0].screenY;
+  }, { passive: true });
+
+  swipeZone.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    touchEndY = e.changedTouches[0].screenY;
+    handleSwipeGesture();
+  }, { passive: true });
+
+  function handleSwipeGesture() {
+    const diffX = touchEndX - touchStartX;
+    const diffY = touchEndY - touchStartY;
+
+    // Assicuriamoci che sia un movimento prevalentemente orizzontale e non verticale
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX < 0) {
+        // Swipe verso sinistra -> Avanti alla prossima giornata
+        if (currentRound < 36) {
+          currentRound++;
+          renderRound(currentRound);
+        }
+      } else {
+        // Swipe verso destra -> Indietro alla giornata precedente
+        if (currentRound > 1) {
+          currentRound--;
+          renderRound(currentRound);
+        }
+      }
+    }
+  }
 
   // Avvio
   renderRound(currentRound);

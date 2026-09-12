@@ -2,31 +2,30 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Favicon classica per browser PC -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+  <title>JUENFANTABUSTER</title>
+  
+  <!-- Icone Web App -->
   <link rel="icon" type="image/png" href="icon.png" />
-
-  <!-- Icona per la schermata Home di iPhone / iPad -->
   <link rel="apple-touch-icon" href="icon.png" />
-
-  <!-- Ottimizzazioni Web App a schermo intero (iOS & Android) -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Juenfanta" />
+  <meta name="apple-mobile-web-app-title" content="Juenfantabuster" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#050807" />
-  <title>JUENFANTABUSTER</title>
-  <!-- Libreria html2canvas per scaricare la Story PNG -->
+
+  <!-- html2canvas -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
   <style>
     :root {
       --neon: #00ff66;
       --neon-dark: #003311;
       --bg: #050807;
-      --card-bg: rgba(6, 18, 12, 0.88);
+      --card-bg: rgba(6, 18, 12, 0.92);
       --card-border: #00cc55;
-      --glow: 0 0 10px rgba(0, 255, 102, 0.45);
-      --glow-strong: 0 0 18px rgba(0, 255, 102, 0.85);
+      --glow: 0 0 8px rgba(0, 255, 102, 0.45);
+      --glow-strong: 0 0 16px rgba(0, 255, 102, 0.85);
       --pitch-bg: #0b2f17;
       --pitch-line: rgba(0, 255, 102, 0.35);
       --pink-gazzetta: #ea5b88;
@@ -35,238 +34,245 @@
       --orange: #ff9900;
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    /* BLOCCO TOTALE DELLO SCORRIMENTO ORIZZONTALE */
+    html, body {
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: var(--bg);
+      -webkit-text-size-adjust: 100%;
+      touch-action: pan-y; /* Impedisce il rimbalzo orizzontale su iOS */
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
     
     body {
-      background-color: var(--bg);
-      background-image: radial-gradient(circle at 50% 20%, #0d2818 0%, #040806 85%);
+      background-image: radial-gradient(circle at 50% 15%, #0d2818 0%, #040806 85%);
       color: #fff;
       font-family: 'Impact', 'Arial Black', sans-serif;
-      letter-spacing: 0.5px;
       display: flex;
       justify-content: center;
       min-height: 100vh;
-      padding: 12px;
+      padding: 10px 8px env(safe-area-inset-bottom) 8px;
     }
 
     .wrapper {
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
+      overflow-x: hidden;
     }
 
     .cyber-box {
       border: 1.5px solid var(--card-border);
       box-shadow: var(--glow);
-      border-radius: 14px;
+      border-radius: 12px;
       background: var(--card-bg);
+      width: 100%;
     }
 
+    /* Header Navigazione */
     .header {
-      padding: 12px;
+      padding: 10px 8px;
       text-align: center;
     }
     .main-title {
-      font-size: 1.35rem;
+      font-size: clamp(1rem, 4.2vw, 1.25rem);
       color: var(--neon);
       text-shadow: var(--glow-strong);
       margin-bottom: 6px;
       text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .round-nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 10px;
+      padding: 0 4px;
     }
     .nav-btn {
       background: transparent;
       border: 1px solid var(--neon);
       color: var(--neon);
       box-shadow: var(--glow);
-      padding: 5px 16px;
-      font-size: 0.9rem;
+      padding: 4px 12px;
+      font-size: 0.82rem;
       font-weight: bold;
       border-radius: 6px;
       cursor: pointer;
-      transition: all 0.2s ease;
     }
-    .nav-btn:hover { background: var(--neon); color: #000; }
-    .round-indicator { font-size: 1.1rem; color: #fff; }
+    .nav-btn:active { background: var(--neon); color: #000; }
+    .round-indicator { font-size: 1rem; color: #fff; }
 
-    /* Griglia Icone Rubriche Speciali */
+    /* Griglia Rubriche */
     .special-actions-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 8px;
+      gap: 6px;
+      width: 100%;
     }
     .action-btn {
-      border-radius: 10px;
-      padding: 8px 6px;
+      border-radius: 8px;
+      padding: 8px 4px;
       color: #fff;
       font-family: 'Impact', sans-serif;
-      font-size: 0.74rem;
+      font-size: 0.7rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 5px;
+      gap: 4px;
       cursor: pointer;
       text-transform: uppercase;
-      transition: transform 0.15s, box-shadow 0.15s;
+      text-align: center;
+      line-height: 1.1;
     }
-    .action-btn:hover { transform: scale(1.02); }
+    .action-btn:active { transform: scale(0.98); }
     .btn-gazzetta {
       background: linear-gradient(135deg, #1f0b17, #380d23);
       border: 1.5px solid var(--pink-gazzetta);
-      box-shadow: 0 0 8px rgba(234, 91, 136, 0.4);
     }
     .btn-top11 {
       background: linear-gradient(135deg, #242004, #3d3504);
       border: 1.5px solid var(--gold);
-      box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
     }
     .btn-scorers {
       background: linear-gradient(135deg, #03221b, #073a2f);
       border: 1.5px solid var(--neon);
-      box-shadow: var(--glow);
     }
     .btn-h2h {
       background: linear-gradient(135deg, #051c24, #0b2f3d);
       border: 1.5px solid var(--cyan);
-      box-shadow: 0 0 8px rgba(0, 217, 255, 0.4);
     }
     .btn-mercato {
       background: linear-gradient(135deg, #201103, #3f2207);
       border: 1.5px solid var(--orange);
-      box-shadow: 0 0 8px rgba(255, 153, 0, 0.4);
     }
     .btn-records {
       background: linear-gradient(135deg, #2a0808, #4c1111);
       border: 1.5px solid #ff4444;
-      box-shadow: 0 0 8px rgba(255, 68, 68, 0.4);
     }
     .btn-share {
       grid-column: span 2;
       background: linear-gradient(135deg, #120521, #240944);
       border: 1.5px solid #a855f7;
-      box-shadow: 0 0 8px rgba(168, 85, 247, 0.4);
+      padding: 10px;
+      font-size: 0.78rem;
     }
 
     /* Lista Partite */
-    .matches-list { display: flex; flex-direction: column; gap: 9px; }
+    .matches-list { display: flex; flex-direction: column; gap: 8px; width: 100%; }
     .match-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 12px;
-      transition: background 0.15s ease;
+      padding: 8px 6px;
     }
     .team-block {
-      width: 38%;
+      width: 36%;
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 4px;
+      gap: 3px;
       cursor: pointer;
     }
-    .team-block:hover .team-name {
-      color: var(--neon);
-      text-decoration: underline;
-    }
     .team-logo {
-      width: 50px;
-      height: 50px;
+      width: 44px;
+      height: 44px;
       border-radius: 50%;
       object-fit: cover;
       border: 1.5px solid var(--neon);
-      box-shadow: 0 0 6px rgba(0, 255, 102, 0.4);
       background: #000;
     }
     .team-name {
-      font-size: 0.68rem;
+      font-size: 0.62rem;
       color: #f0f0f0;
       text-transform: uppercase;
       line-height: 1.1;
+      word-break: break-word;
     }
 
     .vs-block {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 3px;
-      min-width: 74px;
+      gap: 2px;
+      min-width: 68px;
       cursor: pointer;
-      padding: 4px;
-      border-radius: 8px;
-      transition: background 0.15s;
+      padding: 3px;
+      border-radius: 6px;
     }
-    .vs-block:hover { background: rgba(0, 255, 102, 0.15); }
+    .vs-block:active { background: rgba(0, 255, 102, 0.2); }
     .vs-tag {
       background: var(--neon);
       color: #000;
-      font-size: 0.65rem;
-      padding: 1px 7px;
+      font-size: 0.6rem;
+      padding: 1px 6px;
       border-radius: 3px;
       font-weight: 900;
     }
-    .score-badge { font-size: 1.25rem; color: #fff; letter-spacing: 1px; }
-    .fanta-totals { font-size: 0.62rem; color: #aaa; font-family: Arial, sans-serif; }
+    .score-badge { font-size: 1.15rem; color: #fff; letter-spacing: 1px; }
+    .fanta-totals { font-size: 0.58rem; color: #aaa; font-family: Arial, sans-serif; }
 
-    /* Classifica con Switch Punti Reali / Fantapunti */
-    .standings-wrap { padding: 12px; }
+    /* Classifica */
+    .standings-wrap { padding: 10px 8px; width: 100%; overflow: hidden; }
     .standings-header-row {
-      display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+      display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;
     }
     .standings-switch-btn {
       background: #112216; border: 1px solid var(--neon); color: var(--neon);
-      font-family: 'Impact', sans-serif; font-size: 0.68rem; padding: 3px 8px;
-      border-radius: 4px; cursor: pointer;
+      font-family: 'Impact', sans-serif; font-size: 0.62rem; padding: 3px 6px;
+      border-radius: 4px; cursor: pointer; white-space: nowrap;
     }
-    .standings-switch-btn:hover { background: var(--neon); color: #000; }
-    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+    .standings-table { width: 100%; border-collapse: collapse; font-size: 0.75rem; table-layout: fixed; }
     .standings-table th {
       color: var(--neon);
-      text-shadow: 0 0 5px var(--neon);
-      padding: 4px;
-      font-size: 0.72rem;
+      padding: 4px 2px;
+      font-size: 0.65rem;
       border-bottom: 1px solid rgba(0, 255, 102, 0.4);
     }
     .standings-table td {
-      padding: 6px 4px;
+      padding: 6px 2px;
       border-bottom: 1px solid rgba(0, 255, 102, 0.15);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
-    .col-pos { text-align: center; width: 28px; color: var(--neon); font-size: 0.9rem; }
-    .col-team { text-align: left; cursor: pointer; }
-    .col-team:hover { color: var(--neon); text-decoration: underline; }
-    .col-form { text-align: center; width: 65px; }
-    .form-dots { display: flex; gap: 3px; justify-content: center; }
-    .dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      display: inline-block;
-    }
-    .dot-w { background: #00ff66; box-shadow: 0 0 4px #00ff66; }
+    .col-pos { text-align: center; width: 22px; color: var(--neon); font-size: 0.85rem; }
+    .col-team { text-align: left; }
+    .col-form { text-align: center; width: 55px; }
+    .form-dots { display: flex; gap: 2px; justify-content: center; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+    .dot-w { background: #00ff66; }
     .dot-d { background: #ffcc00; }
     .dot-l { background: #ff3344; }
-    .col-pts { text-align: center; width: 38px; font-size: 0.9rem; color: #fff; }
+    .col-pts { text-align: center; width: 32px; font-size: 0.85rem; color: #fff; }
 
     /* Modali */
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.92);
+      background: rgba(0, 0, 0, 0.94);
       justify-content: center;
       align-items: center;
-      padding: 8px;
-      z-index: 100;
+      padding: 10px;
+      z-index: 200;
     }
     .modal-box {
       width: 100%;
-      max-width: 440px;
-      max-height: 94vh;
+      max-width: 400px;
+      max-height: 90vh;
       background: #09120c;
       border: 2px solid var(--neon);
       box-shadow: var(--glow-strong);
@@ -276,6 +282,7 @@
       flex-direction: column;
       gap: 8px;
       overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .modal-header {
       display: flex;
@@ -284,16 +291,18 @@
       border-bottom: 1px solid var(--neon);
       padding-bottom: 5px;
       color: var(--neon);
+      font-size: 0.88rem;
     }
     .close-btn {
       background: none;
       border: none;
       color: var(--neon);
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       cursor: pointer;
+      line-height: 1;
     }
 
-    .pitch-tabs { display: flex; gap: 8px; }
+    .pitch-tabs { display: flex; gap: 6px; }
     .pitch-tab-btn {
       flex: 1;
       padding: 6px;
@@ -301,7 +310,7 @@
       border: 1px solid var(--card-border);
       color: #fff;
       font-family: 'Impact', sans-serif;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       border-radius: 6px;
       cursor: pointer;
     }
@@ -310,16 +319,16 @@
     /* Campetto */
     .soccer-pitch {
       width: 100%;
-      height: 360px;
+      height: 350px;
       background-color: var(--pitch-bg);
-      background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 32px, transparent 32px, transparent 64px);
+      background-image: repeating-linear-gradient(0deg, rgba(0,0,0,0.18), rgba(0,0,0,0.18) 30px, transparent 30px, transparent 60px);
       border: 2px solid var(--pitch-line);
       border-radius: 10px;
       position: relative;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 10px 4px;
+      padding: 8px 2px;
     }
     .pitch-line-center {
       position: absolute;
@@ -331,7 +340,7 @@
       position: absolute;
       top: 50%; left: 50%;
       transform: translate(-50%, -50%);
-      width: 75px; height: 75px;
+      width: 65px; height: 65px;
       border: 1.5px solid var(--pitch-line);
       border-radius: 50%;
     }
@@ -345,65 +354,45 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 2px;
-      min-width: 48px;
-      max-width: 76px;
+      gap: 1px;
+      min-width: 44px;
+      max-width: 70px;
       text-align: center;
     }
     .player-shirt {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       background: #000;
       border: 1.5px solid var(--neon);
-      box-shadow: 0 0 5px var(--neon);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       color: var(--neon);
       font-family: Arial, sans-serif;
       font-weight: bold;
     }
-    .player-shirt.gold-shirt {
-      border-color: var(--gold);
-      color: var(--gold);
-      box-shadow: 0 0 6px var(--gold);
-    }
-    .player-shirt.flop-shirt {
-      border-color: #ff3344;
-      color: #ff3344;
-      box-shadow: 0 0 6px #ff3344;
-    }
+    .player-shirt.gold-shirt { border-color: var(--gold); color: var(--gold); }
+    .player-shirt.flop-shirt { border-color: #ff3344; color: #ff3344; }
     .player-name {
       font-family: Arial, sans-serif;
-      font-size: 0.62rem;
+      font-size: 0.58rem;
       font-weight: bold;
       color: #fff;
-      background: rgba(0, 0, 0, 0.75);
-      padding: 1px 3px;
-      border-radius: 3px;
+      background: rgba(0, 0, 0, 0.8);
+      padding: 1px 2px;
+      border-radius: 2px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
       max-width: 100%;
     }
-    .player-team-tag {
-      font-size: 0.52rem;
-      color: #aaa;
-      font-family: Arial, sans-serif;
-    }
-    .bench-tag {
-      font-size: 0.5rem;
-      background: #ffaa00;
-      color: #000;
-      font-weight: bold;
-      padding: 0 2px;
-      border-radius: 2px;
-    }
-    .player-badges { display: flex; gap: 2px; font-family: Arial, sans-serif; font-size: 0.58rem; }
-    .voto-box { background: #252e38; color: #fff; padding: 1px 3px; border-radius: 2px; }
-    .fanta-box { background: #0088cc; color: #fff; padding: 1px 3px; border-radius: 2px; font-weight: bold; }
+    .player-team-tag { font-size: 0.5rem; color: #aaa; font-family: Arial, sans-serif; }
+    .bench-tag { font-size: 0.45rem; background: #ffaa00; color: #000; font-weight: bold; padding: 0 2px; border-radius: 2px; }
+    .player-badges { display: flex; gap: 2px; font-family: Arial, sans-serif; font-size: 0.55rem; }
+    .voto-box { background: #252e38; color: #fff; padding: 1px 2px; border-radius: 2px; }
+    .fanta-box { background: #0088cc; color: #fff; padding: 1px 2px; border-radius: 2px; font-weight: bold; }
     .fanta-box.bonus { background: #00aa44; }
     .fanta-box.malus { background: #cc2200; }
 
@@ -412,115 +401,86 @@
       background: rgba(0, 20, 10, 0.85);
       border: 1px solid var(--card-border);
       border-radius: 8px;
-      padding: 8px;
+      padding: 6px;
     }
     .bench-title {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       color: var(--neon);
-      margin-bottom: 6px;
-      text-transform: uppercase;
       text-align: center;
       border-bottom: 1px solid rgba(0, 255, 102, 0.3);
-      padding-bottom: 3px;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
     }
     .bench-list {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      max-height: 140px;
+      gap: 3px;
+      max-height: 120px;
       overflow-y: auto;
       font-family: Arial, sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
     }
     .bench-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 3px 6px;
+      padding: 2px 4px;
       background: rgba(255, 255, 255, 0.03);
-      border-radius: 4px;
+      border-radius: 3px;
     }
-    .bench-player-info { display: flex; align-items: center; gap: 6px; }
-    .bench-role { font-weight: bold; font-size: 0.65rem; width: 14px; text-align: center; }
+    .bench-player-info { display: flex; align-items: center; gap: 4px; }
+    .bench-role { font-weight: bold; font-size: 0.6rem; width: 12px; text-align: center; }
     .role-p { color: #f59e0b; }
     .role-d { color: #10b981; }
     .role-c { color: #3b82f6; }
     .role-a { color: #ef4444; }
 
-    /* Scheda Squadra con Profilo e Crediti */
+    /* Scheda Squadra */
     .team-profile-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
-      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 8px;
+      display: flex; align-items: center; gap: 10px; margin-bottom: 8px;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 6px;
     }
     .team-profile-logo {
-      width: 60px; height: 60px; border-radius: 50%; object-fit: cover;
-      border: 2px solid var(--neon); box-shadow: var(--glow);
+      width: 50px; height: 50px; border-radius: 50%; object-fit: cover;
+      border: 2px solid var(--neon);
     }
-    .team-profile-info { font-family: Arial, sans-serif; font-size: 0.75rem; }
-    .roster-role-group { margin-bottom: 8px; font-family: Arial, sans-serif; }
+    .team-profile-info { font-family: Arial, sans-serif; font-size: 0.72rem; }
+    .roster-role-group { margin-bottom: 6px; font-family: Arial, sans-serif; }
     .roster-role-title {
-      color: var(--neon); font-size: 0.75rem; font-weight: bold;
-      border-bottom: 1px solid rgba(0, 255, 102, 0.3);
-      padding-bottom: 2px; margin-bottom: 4px; text-transform: uppercase;
+      color: var(--neon); font-size: 0.7rem; font-weight: bold;
+      border-bottom: 1px solid rgba(0, 255, 102, 0.3); padding-bottom: 1px; margin-bottom: 3px;
     }
-    .roster-player-tags { display: flex; flex-wrap: wrap; gap: 4px; }
-    .roster-tag { background: rgba(255, 255, 255, 0.08); padding: 2px 7px; border-radius: 4px; font-size: 0.72rem; }
+    .roster-player-tags { display: flex; flex-wrap: wrap; gap: 3px; }
+    .roster-tag { background: rgba(255, 255, 255, 0.08); padding: 2px 6px; border-radius: 3px; font-size: 0.68rem; }
 
     /* Gazzetta */
-    .gazzetta-box {
-      font-family: Arial, sans-serif; font-size: 0.8rem;
-      display: flex; flex-direction: column; gap: 12px; color: #e5e5e5;
-    }
-    .gazzetta-headline { font-family: 'Impact', sans-serif; color: var(--pink-gazzetta); font-size: 1.15rem; line-height: 1.2; }
-    .gazzetta-lead { font-style: italic; border-left: 3px solid var(--pink-gazzetta); padding-left: 8px; color: #ccc; }
-    .gaz-card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(234, 91, 136, 0.35);
-      border-radius: 6px; padding: 8px;
-    }
-    .gaz-card-title { color: var(--pink-gazzetta); font-weight: bold; margin-bottom: 4px; font-size: 0.75rem; text-transform: uppercase; }
+    .gazzetta-box { font-family: Arial, sans-serif; font-size: 0.75rem; display: flex; flex-direction: column; gap: 8px; color: #e5e5e5; }
+    .gazzetta-headline { font-family: 'Impact', sans-serif; color: var(--pink-gazzetta); font-size: 1rem; line-height: 1.2; }
+    .gazzetta-lead { font-style: italic; border-left: 3px solid var(--pink-gazzetta); padding-left: 6px; color: #ccc; }
+    .gaz-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(234, 91, 136, 0.35); border-radius: 6px; padding: 6px; }
+    .gaz-card-title { color: var(--pink-gazzetta); font-weight: bold; margin-bottom: 3px; font-size: 0.7rem; }
 
-    /* Tabellone Scontri Diretti / Matrice */
-    .matrix-wrap { overflow-x: auto; }
-    .matrix-table {
-      width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.65rem; text-align: center;
-    }
-    .matrix-table th, .matrix-table td {
-      border: 1px solid rgba(0, 217, 255, 0.3); padding: 4px; min-width: 32px;
-    }
+    /* Matrice H2H */
+    .matrix-wrap { overflow-x: auto; width: 100%; }
+    .matrix-table { width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 0.62rem; text-align: center; }
+    .matrix-table th, .matrix-table td { border: 1px solid rgba(0, 217, 255, 0.3); padding: 4px 2px; min-width: 28px; }
     .matrix-table th { background: rgba(0, 217, 255, 0.15); color: var(--cyan); }
     .matrix-cell-self { background: rgba(255, 255, 255, 0.05); }
 
     /* Marcatori */
-    .scorers-list {
-      display: flex; flex-direction: column; gap: 6px; font-family: Arial, sans-serif;
-    }
-    .scorer-row {
-      display: flex; justify-content: space-between; align-items: center;
-      background: rgba(255, 255, 255, 0.04); padding: 6px 10px; border-radius: 6px;
-    }
-    .scorer-info { display: flex; align-items: center; gap: 8px; }
-    .scorer-mini-logo { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; }
-    .scorer-goals { color: #ffee00; font-weight: bold; font-size: 0.85rem; }
+    .scorers-list { display: flex; flex-direction: column; gap: 5px; font-family: Arial, sans-serif; }
+    .scorer-row { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.04); padding: 5px 8px; border-radius: 4px; font-size: 0.72rem; }
+    .scorer-info { display: flex; align-items: center; gap: 6px; }
+    .scorer-mini-logo { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; }
+    .scorer-goals { color: #ffee00; font-weight: bold; font-size: 0.8rem; }
 
     /* Mercato */
-    .trade-card {
-      background: rgba(255, 153, 0, 0.06);
-      border: 1px solid rgba(255, 153, 0, 0.4);
-      border-radius: 8px; padding: 10px; font-family: Arial, sans-serif; font-size: 0.75rem;
-      margin-bottom: 8px;
-    }
-    .trade-header {
-      color: var(--orange); font-weight: bold; font-family: 'Impact', sans-serif; font-size: 0.85rem; margin-bottom: 4px;
-    }
+    .trade-card { background: rgba(255, 153, 0, 0.06); border: 1px solid rgba(255, 153, 0, 0.4); border-radius: 6px; padding: 8px; font-family: Arial, sans-serif; font-size: 0.7rem; margin-bottom: 6px; }
+    .trade-header { color: var(--orange); font-weight: bold; font-family: 'Impact', sans-serif; font-size: 0.78rem; margin-bottom: 2px; }
 
-    /* Record Stagionali */
-    .record-item {
-      background: rgba(255, 68, 68, 0.06); border: 1px solid rgba(255, 68, 68, 0.35);
-      border-radius: 8px; padding: 8px 10px; font-family: Arial, sans-serif; font-size: 0.75rem;
-      margin-bottom: 6px;
-    }
-    .record-label { color: #ff5555; font-weight: bold; text-transform: uppercase; font-size: 0.68rem; margin-bottom: 2px; }
+    /* Record */
+    .record-item { background: rgba(255, 68, 68, 0.06); border: 1px solid rgba(255, 68, 68, 0.35); border-radius: 6px; padding: 6px 8px; font-family: Arial, sans-serif; font-size: 0.72rem; margin-bottom: 5px; }
+    .record-label { color: #ff5555; font-weight: bold; font-size: 0.65rem; margin-bottom: 2px; }
   </style>
 </head>
 <body>
@@ -529,7 +489,7 @@
 
   <!-- Header Navigazione -->
   <div class="cyber-box header">
-    <div class="main-title" id="roundTitle">JUENFANTABUSTER - GIORNATA 1</div>
+    <div class="main-title" id="roundTitle">JUENFANTABUSTER - G1</div>
     <div class="round-nav">
       <button class="nav-btn" id="prevBtn">&lt; PREV</button>
       <span class="round-indicator" id="roundIndicator">1 / 36</span>
@@ -537,15 +497,15 @@
     </div>
   </div>
 
-  <!-- Griglia Pulsanti Speciali -->
+  <!-- Griglia Pulsanti Rubriche -->
   <div class="special-actions-grid">
     <div class="action-btn btn-gazzetta" id="openGazzettaBtn">📰 LA GAZZETTA</div>
     <div class="action-btn btn-top11" id="openTop11Btn">⭐ TOP 11 (3-4-3)</div>
     <div class="action-btn btn-scorers" id="openScorersBtn">⚽ MARCATORI</div>
     <div class="action-btn btn-h2h" id="openH2hBtn">⚔️ SCONTRI DIRETTI</div>
     <div class="action-btn btn-mercato" id="openMercatoBtn">🔄 CALCIOMERCATO</div>
-    <div class="action-btn btn-records" id="openRecordsBtn">🔥 RECORD STAGIONE</div>
-    <div class="action-btn btn-share" id="captureStoryBtn">📸 CONDIVIDI STORY WHATSAPP</div>
+    <div class="action-btn btn-records" id="openRecordsBtn">🔥 RECORD LEGA</div>
+    <div class="action-btn btn-share" id="captureStoryBtn">📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)</div>
   </div>
 
   <!-- Partite -->
@@ -554,8 +514,8 @@
   <!-- Classifica con Switch Punti Reali / Fantapunti -->
   <div class="cyber-box standings-wrap">
     <div class="standings-header-row">
-      <span id="standingsModeTitle" style="color: var(--neon); font-size: 0.85rem;">CLASSIFICA UFFICIALE</span>
-      <button class="standings-switch-btn" id="toggleStandingsModeBtn">📊 VEDI FANTAPUNTI SOMMATI</button>
+      <span id="standingsModeTitle" style="color: var(--neon); font-size: 0.75rem;">CLASSIFICA UFFICIALE</span>
+      <button class="standings-switch-btn" id="toggleStandingsModeBtn">📊 FANTAPUNTI SOMMATI</button>
     </div>
     <table class="standings-table">
       <thead>
@@ -572,7 +532,7 @@
 
 </div>
 
-<!-- MODALE MATCH: CAMPO + PANCHINA -->
+<!-- MODALE FORMAZIONI -->
 <div class="modal" id="lineupModal">
   <div class="modal-box">
     <div class="modal-header">
@@ -602,7 +562,7 @@
 <div class="modal" id="top11Modal">
   <div class="modal-box" style="border-color: var(--gold);">
     <div class="modal-header" style="color: var(--gold); border-color: var(--gold);">
-      <span id="top11ModalTitle">TOP 11 - GIORNATA 1 (3-4-3)</span>
+      <span id="top11ModalTitle">TOP 11 (3-4-3)</span>
       <button class="close-btn" id="closeTop11Modal" style="color: var(--gold);">&times;</button>
     </div>
     <div class="pitch-tabs">
@@ -624,58 +584,55 @@
 <div class="modal" id="scorersModal">
   <div class="modal-box">
     <div class="modal-header">
-      <span>⚽ CLASSIFICA BOMBER DELLA LEGA</span>
+      <span>⚽ CLASSIFICA BOMBER</span>
       <button class="close-btn" id="closeScorersModal">&times;</button>
     </div>
     <div class="scorers-list" id="scorersContainer"></div>
   </div>
 </div>
 
-<!-- MODALE SCONTRI DIRETTI (MATRICE) -->
+<!-- MODALE SCONTRI DIRETTI -->
 <div class="modal" id="h2hModal">
   <div class="modal-box" style="border-color: var(--cyan);">
     <div class="modal-header" style="color: var(--cyan); border-color: var(--cyan);">
-      <span>⚔️ TABELLONE SCONTRI DIRETTI</span>
+      <span>⚔️ SCONTRI DIRETTI</span>
       <button class="close-btn" id="closeH2hModal" style="color: var(--cyan);">&times;</button>
     </div>
     <div class="matrix-wrap" id="matrixContainer"></div>
   </div>
 </div>
 
-<!-- MODALE CALCIOMERCATO (REGOLAMENTO FISSO IN ALTO) -->
+<!-- MODALE CALCIOMERCATO -->
 <div class="modal" id="mercatoModal">
   <div class="modal-box" style="border-color: var(--orange);">
     <div class="modal-header" style="color: var(--orange); border-color: var(--orange);">
-      <span>🔄 CALCIOMERCATO & TRATTATIVE</span>
+      <span>🔄 CALCIOMERCATO</span>
       <button class="close-btn" id="closeMercatoModal" style="color: var(--orange);">&times;</button>
     </div>
-
-    <!-- REGOLAMENTO FISSO IN CIMA -->
-    <div style="background: rgba(255, 153, 0, 0.12); border: 1.5px solid var(--orange); border-radius: 8px; padding: 10px; font-family: Arial, sans-serif; font-size: 0.75rem; margin-bottom: 4px;">
-      <div style="color: var(--orange); font-family: 'Impact', sans-serif; font-size: 0.85rem; margin-bottom: 4px;">📌 REGOLAMENTO MERCATO LEGA</div>
-      <div style="font-weight: bold; margin-bottom: 4px; color: #fff;">SESSIONI SCAMBI ⇄ ASTA DI RIPARAZIONE</div>
-      <div style="color: #ddd; line-height: 1.35;">
-        Gli scambi tra presidenti saranno attivi <strong>esclusivamente durante le pause delle Nazionali</strong>.<br>
-        L'<strong>Asta di Riparazione</strong> si svolgerà a fine gennaio subito dopo la chiusura del calciomercato reale invernale!
+    <div style="background: rgba(255, 153, 0, 0.12); border: 1.5px solid var(--orange); border-radius: 8px; padding: 8px; font-family: Arial, sans-serif; font-size: 0.7rem; margin-bottom: 4px;">
+      <div style="color: var(--orange); font-family: 'Impact', sans-serif; font-size: 0.8rem; margin-bottom: 2px;">📌 REGOLAMENTO MERCATO</div>
+      <div style="color: #fff; font-weight: bold; margin-bottom: 2px;">SCAMBI NAZIONALI ⇄ ASTA RIPARAZIONE</div>
+      <div style="color: #ddd; line-height: 1.3;">
+        Scambi attivi <strong>esclusivamente nelle soste delle Nazionali</strong>.<br>
+        <strong>Asta di Riparazione</strong> a fine gennaio dopo la chiusura del mercato reale!
       </div>
     </div>
-
     <div id="mercatoContainer"></div>
   </div>
 </div>
 
-<!-- MODALE RECORD STAGIONALI -->
+<!-- MODALE RECORD -->
 <div class="modal" id="recordsModal">
   <div class="modal-box" style="border-color: #ff4444;">
     <div class="modal-header" style="color: #ff4444; border-color: #ff4444;">
-      <span>🔥 RECORD STAGIONALI DELLA LEGA</span>
+      <span>🔥 RECORD DELLA LEGA</span>
       <button class="close-btn" id="closeRecordsModal" style="color: #ff4444);">&times;</button>
     </div>
     <div id="recordsContainer"></div>
   </div>
 </div>
 
-<!-- MODALE SCHEDA SQUADRA: PROFILO, PRESIDENTE, CREDITI E ROSA -->
+<!-- MODALE SCHEDA SQUADRA -->
 <div class="modal" id="rosterModal">
   <div class="modal-box">
     <div class="modal-header">
@@ -697,10 +654,10 @@
   </div>
 </div>
 
-<!-- 1. Dati esterni da dati.js -->
+<!-- Script Dati -->
 <script src="dati.js"></script>
 
-<!-- 2. Motore JavaScript -->
+<!-- Logica App -->
 <script>
   const TEAMS = {
     "JAGERBOMBERAS": { name: "JAGERBOMBERAS", logo: "loghi/jagerbomberas.jpeg", tag: "JAG" },
@@ -739,7 +696,7 @@
   let currentRound = getLatestPlayedRound();
   let activeMatch = null;
   let currentTopFlopTab = 'top';
-  let standingsMode = 'official'; // 'official' oppure 'fantapunti'
+  let standingsMode = 'official';
 
   function getMatchesForRound(roundNumber) {
     if (typeof MATCH_DATA !== 'undefined' && MATCH_DATA[roundNumber]) {
@@ -751,7 +708,6 @@
     }));
   }
 
-  // Calcolo Classifica Ufficiale e Fantapunti Totali
   function calculateStandingsUpTo(roundNumber) {
     const table = {};
     Object.keys(TEAMS).forEach(t => {
@@ -794,11 +750,9 @@
     }
 
     const list = Object.values(table);
-
     if (standingsMode === 'fantapunti') {
       return list.sort((a, b) => b.fantaTot - a.fantaTot);
     }
-
     return list.sort((a, b) => {
       if (b.pts !== a.pts) return b.pts - a.pts;
       if (b.fantaTot !== a.fantaTot) return b.fantaTot - a.fantaTot;
@@ -807,7 +761,7 @@
   }
 
   function renderRound(r) {
-    document.getElementById('roundTitle').innerText = `JUENFANTABUSTER - GIORNATA ${r}`;
+    document.getElementById('roundTitle').innerText = `JUENFANTABUSTER - G${r}`;
     document.getElementById('roundIndicator').innerText = `${r} / 36`;
 
     const container = document.getElementById('matchesContainer');
@@ -846,10 +800,10 @@
     const standings = calculateStandingsUpTo(r);
 
     if (standingsMode === 'official') {
-      document.getElementById('standingsModeTitle').innerText = `CLASSIFICA UFFICIALE (GIORNATA ${r})`;
+      document.getElementById('standingsModeTitle').innerText = `CLASSIFICA UFFICIALE (G${r})`;
       document.getElementById('standingsMetricHeader').innerText = 'FORMA';
       document.getElementById('standingsPointsHeader').innerText = 'PT';
-      document.getElementById('toggleStandingsModeBtn').innerText = '📊 VEDI FANTAPUNTI SOMMATI';
+      document.getElementById('toggleStandingsModeBtn').innerText = '📊 FANTAPUNTI';
 
       standings.forEach((row, i) => {
         const tr = document.createElement('tr');
@@ -857,7 +811,7 @@
         const formDotsHtml = lastForm.length ? lastForm.map(res => {
           let cls = res === 'W' ? 'dot-w' : (res === 'D' ? 'dot-d' : 'dot-l');
           return `<span class="dot ${cls}"></span>`;
-        }).join('') : '<span style="color:#666; font-size:0.6rem;">-</span>';
+        }).join('') : '<span style="color:#666; font-size:0.55rem;">-</span>';
 
         tr.innerHTML = `
           <td class="col-pos">${i + 1}</td>
@@ -868,40 +822,37 @@
         tbody.appendChild(tr);
       });
     } else {
-      document.getElementById('standingsModeTitle').innerText = `CLASSIFICA FANTAPUNTI (FANTACULO/SFIGA)`;
+      document.getElementById('standingsModeTitle').innerText = `FANTAPUNTI (FANTACULO/SFIGA)`;
       document.getElementById('standingsMetricHeader').innerText = 'STATUS';
       document.getElementById('standingsPointsHeader').innerText = 'TOT';
-      document.getElementById('toggleStandingsModeBtn').innerText = '🏆 VEDI CLASSIFICA UFFICIALE';
+      document.getElementById('toggleStandingsModeBtn').innerText = '🏆 UFFICIALE';
 
       standings.forEach((row, i) => {
         const tr = document.createElement('tr');
-        
-        // Calcolo Fantaculo vs Sfiga
-        let statusBadge = '<span style="color:#aaa; font-size:0.65rem;">EQUILIBRIO</span>';
+        let statusBadge = '<span style="color:#aaa; font-size:0.6rem;">EQUILIBRIO</span>';
         if (row.fantaTot >= 75 && row.pts === 0) {
-          statusBadge = '<span style="color:#ff4444; font-size:0.65rem; font-weight:bold;">💀 SFIGA NERA</span>';
+          statusBadge = '<span style="color:#ff4444; font-size:0.6rem; font-weight:bold;">💀 SFIGA</span>';
         } else if (row.fantaTot < 70 && row.pts >= 3) {
-          statusBadge = '<span style="color:#00ff66; font-size:0.65rem; font-weight:bold;">🍀 FANTACULO</span>';
+          statusBadge = '<span style="color:#00ff66; font-size:0.6rem; font-weight:bold;">🍀 CULO</span>';
         }
 
         tr.innerHTML = `
           <td class="col-pos">${i + 1}</td>
           <td class="col-team" onclick="openRoster('${row.team}')">${row.team}</td>
           <td class="col-form">${statusBadge}</td>
-          <td class="col-pts" style="font-size: 0.78rem; color: #ffee00;">${row.fantaTot.toFixed(1)}</td>
+          <td class="col-pts" style="font-size: 0.75rem; color: #ffee00;">${row.fantaTot.toFixed(1)}</td>
         `;
         tbody.appendChild(tr);
       });
     }
   }
 
-  // Switch tra Classifica Ufficiale e Punti Sommati
   document.getElementById('toggleStandingsModeBtn').onclick = () => {
     standingsMode = (standingsMode === 'official') ? 'fantapunti' : 'official';
     renderStandings(currentRound);
   };
 
-  // Disegno del Campetto Partita
+  // Disegno Formazioni Partita
   function drawPitch(teamObj) {
     const rowPor = document.getElementById('rowPor');
     const rowDif = document.getElementById('rowDif');
@@ -913,7 +864,7 @@
     benchList.innerHTML = '';
 
     if (!teamObj) {
-      rowCen.innerHTML = '<div style="font-family: Arial; font-size: 0.85rem; color: #88ffaa;">Formazione non inserita</div>';
+      rowCen.innerHTML = '<div style="font-family: Arial; font-size: 0.8rem; color: #88ffaa;">Formazione non inserita</div>';
       benchList.innerHTML = '<div style="color: #aaa; text-align: center;">Nessun dato panchina</div>';
       return;
     }
@@ -981,7 +932,7 @@
     document.getElementById('lineupModal').style.display = 'flex';
   }
 
-  // Top 11 / Flop 11 (3-4-3)
+  // Top 11 / Flop 11
   function drawSpecialPitch(data, isFlop = false) {
     const rPor = document.getElementById('topRowPor');
     const rDif = document.getElementById('topRowDif');
@@ -991,7 +942,7 @@
     rPor.innerHTML = ''; rDif.innerHTML = ''; rCen.innerHTML = ''; rAtt.innerHTML = '';
 
     if (!data) {
-      rCen.innerHTML = '<div style="font-family: Arial; font-size: 0.85rem; color: #88ffaa;">Dati non disponibili per questo turno</div>';
+      rCen.innerHTML = '<div style="font-family: Arial; font-size: 0.8rem; color: #88ffaa;">Dati non disponibili</div>';
       return;
     }
 
@@ -1003,7 +954,7 @@
         <div class="player-card">
           <div class="player-shirt ${shirtClass}">${role}</div>
           <span class="player-name">${p.name}</span>
-          <div style="display:flex; align-items:center; gap:3px;">
+          <div style="display:flex; align-items:center; gap:2px;">
             <span class="player-team-tag">(${p.team})</span>
             ${pancaTag}
           </div>
@@ -1021,7 +972,7 @@
   }
 
   document.getElementById('openTop11Btn').onclick = () => {
-    document.getElementById('top11ModalTitle').innerText = `TOP 11 - GIORNATA ${currentRound} (3-4-3)`;
+    document.getElementById('top11ModalTitle').innerText = `TOP 11 - G${currentRound} (3-4-3)`;
     currentTopFlopTab = 'top';
     document.getElementById('tabTop11Btn').classList.add('active');
     document.getElementById('tabFlop11Btn').classList.remove('active');
@@ -1035,7 +986,7 @@
     currentTopFlopTab = 'top';
     document.getElementById('tabTop11Btn').classList.add('active');
     document.getElementById('tabFlop11Btn').classList.remove('active');
-    document.getElementById('top11ModalTitle').innerText = `TOP 11 - GIORNATA ${currentRound} (3-4-3)`;
+    document.getElementById('top11ModalTitle').innerText = `TOP 11 - G${currentRound} (3-4-3)`;
     const tfData = (typeof TOP_FLOP_ROUNDS !== 'undefined') ? TOP_FLOP_ROUNDS[currentRound] : null;
     drawSpecialPitch(tfData ? tfData.top11 : null, false);
   };
@@ -1044,7 +995,7 @@
     currentTopFlopTab = 'flop';
     document.getElementById('tabFlop11Btn').classList.add('active');
     document.getElementById('tabTop11Btn').classList.remove('active');
-    document.getElementById('top11ModalTitle').innerText = `FLOP 11 - GIORNATA ${currentRound} (3-4-3)`;
+    document.getElementById('top11ModalTitle').innerText = `FLOP 11 - G${currentRound} (3-4-3)`;
     const tfData = (typeof TOP_FLOP_ROUNDS !== 'undefined') ? TOP_FLOP_ROUNDS[currentRound] : null;
     drawSpecialPitch(tfData ? tfData.flop11 : null, true);
   };
@@ -1088,7 +1039,7 @@
       .sort((a,b) => b.goals - a.goals);
 
     if (!sortedScorers.length) {
-      box.innerHTML = '<div style="text-align:center; padding:15px;">Nessun gol registrato finora.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:12px;">Nessun gol registrato finora.</div>';
       return;
     }
 
@@ -1098,11 +1049,11 @@
       div.className = 'scorer-row';
       div.innerHTML = `
         <div class="scorer-info">
-          <strong style="color:var(--neon); width:18px;">${idx + 1}.</strong>
+          <strong style="color:var(--neon); width:16px;">${idx + 1}.</strong>
           ${logoUrl ? `<img src="${logoUrl}" class="scorer-mini-logo" alt="${s.team}">` : ''}
           <div>
             <div>${s.name}</div>
-            <div style="font-size:0.62rem; color:#aaa;">${s.team}</div>
+            <div style="font-size:0.58rem; color:#aaa;">${s.team}</div>
           </div>
         </div>
         <div class="scorer-goals">${s.goals} ⚽</div>
@@ -1116,7 +1067,7 @@
     document.getElementById('scorersModal').style.display = 'flex';
   };
 
-  // Matrice Scontri Diretti
+  // Matrice H2H
   function renderH2HMatrix() {
     const box = document.getElementById('matrixContainer');
     box.innerHTML = '';
@@ -1162,23 +1113,23 @@
     document.getElementById('h2hModal').style.display = 'flex';
   };
 
-  // Calciomercato
+  // Mercato
   document.getElementById('openMercatoBtn').onclick = () => {
     const box = document.getElementById('mercatoContainer');
     box.innerHTML = '';
     const trades = (typeof CALCIOMERCATO !== 'undefined') ? CALCIOMERCATO : [];
 
     if (!trades.length) {
-      box.innerHTML = '<div style="text-align:center; padding:15px; color:#aaa;">Nessun nuovo scambio registrato.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:12px; color:#aaa;">Nessun nuovo scambio.</div>';
     } else {
       trades.forEach(t => {
         const div = document.createElement('div');
         div.className = 'trade-card';
         div.innerHTML = `
           <div class="trade-header">${t.status}</div>
-          <div style="font-weight:bold; margin-bottom:4px; color:#fff;">${t.squadraA} ⇄ ${t.squadraB}</div>
-          <div style="color:#ddd; margin-bottom:4px; line-height:1.35;">${t.dettagli}</div>
-          <div style="font-size:0.65rem; color:#aaa;">Data: ${t.data}</div>
+          <div style="font-weight:bold; margin-bottom:2px; color:#fff;">${t.squadraA} ⇄ ${t.squadraB}</div>
+          <div style="color:#ddd; margin-bottom:3px; line-height:1.3;">${t.dettagli}</div>
+          <div style="font-size:0.6rem; color:#aaa;">Data: ${t.data}</div>
         `;
         box.appendChild(div);
       });
@@ -1186,7 +1137,7 @@
     document.getElementById('mercatoModal').style.display = 'flex';
   };
 
-  // Record Stagionali
+  // Record
   document.getElementById('openRecordsBtn').onclick = () => {
     const box = document.getElementById('recordsContainer');
     box.innerHTML = '';
@@ -1226,40 +1177,80 @@
     box.innerHTML = `
       <div class="record-item">
         <div class="record-label">🔥 MIGLIOR PUNTEGGIO SINGOLO</div>
-        <div style="font-weight:bold; font-size:0.85rem; color:#fff;">${topMatchScore.team} - ${topMatchScore.val} pt (Giornata ${topMatchScore.round})</div>
+        <div style="font-weight:bold; color:#fff;">${topMatchScore.team} - ${topMatchScore.val} pt (G${topMatchScore.round})</div>
       </div>
       <div class="record-item">
         <div class="record-label">🥶 PEGGIOR PUNTEGGIO SINGOLO</div>
-        <div style="font-weight:bold; font-size:0.85rem; color:#fff;">${lowMatchScore.team} - ${lowMatchScore.val} pt (Giornata ${lowMatchScore.round})</div>
+        <div style="font-weight:bold; color:#fff;">${lowMatchScore.team} - ${lowMatchScore.val} pt (G${lowMatchScore.round})</div>
       </div>
       <div class="record-item">
         <div class="record-label">⚽ PARTITA PIÙ SPETTACOLARE</div>
-        <div style="font-weight:bold; font-size:0.85rem; color:#fff;">${mostGoalsMatch.str} (${mostGoalsMatch.totalG} gol - Giornata ${mostGoalsMatch.round})</div>
+        <div style="font-weight:bold; color:#fff;">${mostGoalsMatch.str} (${mostGoalsMatch.totalG} gol - G${mostGoalsMatch.round})</div>
       </div>
       <div class="record-item">
         <div class="record-label">🚀 VITTORIA PIÙ LARGA</div>
-        <div style="font-weight:bold; font-size:0.85rem; color:#fff;">${biggestWin.str} (+${biggestWin.diff} gol di scarto - Giornata ${biggestWin.round})</div>
+        <div style="font-weight:bold; color:#fff;">${biggestWin.str} (+${biggestWin.diff} gol - G${biggestWin.round})</div>
       </div>
     `;
     document.getElementById('recordsModal').style.display = 'flex';
   };
 
-  // Story WhatsApp
-  document.getElementById('captureStoryBtn').onclick = () => {
-    const zone = document.getElementById('captureZone');
-    const oldBg = zone.style.background;
-    zone.style.background = '#050807';
+  // CONDIVISIONE STORY NATIVA MOBILE (iOS / Android)
+  document.getElementById('captureStoryBtn').onclick = async () => {
+    const btn = document.getElementById('captureStoryBtn');
+    btn.innerText = '⏳ GENERAZIONE IN CORSO...';
 
-    html2canvas(zone, { scale: 2, useCORS: true }).then(canvas => {
-      zone.style.background = oldBg;
-      const link = document.createElement('a');
-      link.download = `juenfantabuster-giornata-${currentRound}.png`;
-      link.href = canvas.toDataURL();
-      link.click();
-    });
+    const zone = document.getElementById('captureZone');
+    
+    try {
+      const canvas = await html2canvas(zone, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#050807',
+        scrollX: 0,
+        scrollY: 0,
+        windowWidth: 420
+      });
+
+      // Conversione in Blob per Web Share API nativa iOS/Android
+      canvas.toBlob(async (blob) => {
+        const file = new File([blob], `juenfantabuster-g${currentRound}.png`, { type: 'image/png' });
+        
+        // Se il telefono supporta la condivisione nativa dei file (Safari iOS, Chrome Android)
+        if (navigator.canShare && navigator.canShare({ files: [file] })) {
+          try {
+            await navigator.share({
+              files: [file],
+              title: `Juenfantabuster - Giornata ${currentRound}`,
+              text: `Risultati ufficiali Giornata ${currentRound}!`
+            });
+            btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+            return;
+          } catch (err) {
+            // Se l'utente annulla la condivisione
+          }
+        }
+
+        // Fallback per browser desktop o browser che bloccano la Share API: Download classico o apertura in nuova scheda
+        const imageURL = canvas.toDataURL("image/png");
+        const win = window.open();
+        if (win) {
+          win.document.write(`<body style="margin:0;background:#050807;display:flex;justify-content:center;align-items:center;min-height:100vh;"><img src="${imageURL}" style="max-width:100%;border-radius:12px;box-shadow:0 0 15px #00ff66;" alt="Story Juenfanta"/><p style="color:#fff;font-family:sans-serif;position:fixed;bottom:10px;background:rgba(0,0,0,0.8);padding:6px 12px;border-radius:6px;">Tieni premuto sull'immagine per salvarla o condividerla</p></body>`);
+        } else {
+          const link = document.createElement('a');
+          link.download = `juenfantabuster-g${currentRound}.png`;
+          link.href = imageURL;
+          link.click();
+        }
+        btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+      }, 'image/png');
+    } catch (error) {
+      alert("Errore nella generazione dell'immagine: " + error);
+      btn.innerText = '📸 CONDIVIDI RISULTATI (WHATSAPP / INSTA)';
+    }
   };
 
-  // Scheda Squadra: Profilo + Presidente + Crediti + Rosa
+  // Scheda Squadra
   window.openRoster = function(teamName) {
     const info = (typeof SQUADRE_INFO !== 'undefined') ? SQUADRE_INFO[teamName] : null;
     document.getElementById('rosterTeamTitle').innerText = `${teamName}`;
@@ -1267,7 +1258,7 @@
     container.innerHTML = '';
 
     if (!info) {
-      container.innerHTML = '<div style="padding:10px;">Dati squadra non registrati</div>';
+      container.innerHTML = '<div style="padding:8px;">Dati non registrati</div>';
     } else {
       const logoUrl = TEAMS[teamName]?.logo || '';
       const creditiColor = info.crediti >= 0 ? '#00ff66' : '#ff4444';
@@ -1277,9 +1268,9 @@
         <div class="team-profile-header">
           ${logoUrl ? `<img src="${logoUrl}" class="team-profile-logo" alt="${teamName}">` : ''}
           <div class="team-profile-info">
-            <div style="font-weight:bold; font-size:0.85rem; color:#fff;">👤 ${info.presidente}</div>
-            <div style="font-style:italic; color:#aaa; margin: 2px 0;">"${info.motto}"</div>
-            <div style="font-size:0.75rem;">💰 Saldo Crediti: <strong style="color:${creditiColor};">${creditiSegno} FM</strong></div>
+            <div style="font-weight:bold; font-size:0.8rem; color:#fff;">👤 ${info.presidente}</div>
+            <div style="font-style:italic; color:#aaa; margin: 1px 0;">"${info.motto}"</div>
+            <div style="font-size:0.7rem;">💰 Crediti: <strong style="color:${creditiColor};">${creditiSegno} FM</strong></div>
           </div>
         </div>
       `;
@@ -1308,14 +1299,14 @@
     document.getElementById('rosterModal').style.display = 'flex';
   };
 
-  // Modale Gazzetta
+  // Gazzetta
   document.getElementById('openGazzettaBtn').onclick = () => {
     const report = (typeof GAZZETTA_DATA !== 'undefined') ? GAZZETTA_DATA[currentRound] : null;
     const box = document.getElementById('gazzettaContent');
     box.innerHTML = '';
 
     if (!report) {
-      box.innerHTML = '<div style="text-align:center; padding: 20px;">Nessuna edizione della Gazzetta per questa giornata.</div>';
+      box.innerHTML = '<div style="text-align:center; padding:15px;">Nessuna edizione della Gazzetta.</div>';
     } else {
       let mvpList = [];
       if (report.mvps && Array.isArray(report.mvps)) {
@@ -1325,7 +1316,7 @@
       }
 
       const mvpHtml = mvpList.map(m => `
-        <div style="margin-bottom: 6px;">
+        <div style="margin-bottom: 4px;">
           <strong>⭐ ${m.nome} (${m.punti ? m.punti + ' pt' : ''})</strong>: ${m.motivazione}
         </div>
       `).join('');
@@ -1335,35 +1326,35 @@
         <div class="gazzetta-lead">${report.sommario}</div>
 
         <div class="gaz-card">
-          <div class="gaz-card-title">👑 TOP PLAYER DEL WEEKEND (PARI MERITO)</div>
+          <div class="gaz-card-title">👑 TOP PLAYER (PARI MERITO)</div>
           ${mvpHtml}
         </div>
 
         <div class="gaz-card">
-          <div class="gaz-card-title">💣 TOP SCORE DI GIORNATA</div>
-          <div><strong>${report.topScore.squadra}</strong> con un totale di <strong>${report.topScore.punti} pt</strong>!</div>
+          <div class="gaz-card-title">💣 TOP SCORE</div>
+          <div><strong>${report.topScore.squadra}</strong> con <strong>${report.topScore.punti} pt</strong>!</div>
         </div>
 
         <div class="gaz-card">
-          <div class="gaz-card-title">💀 PREMIO FANTASFIGA</div>
+          <div class="gaz-card-title">💀 FANTASFIGA</div>
           <div><strong>${report.fantasfiga.squadra}</strong>: ${report.fantasfiga.descrizione}</div>
         </div>
 
         <div class="gaz-card">
-          <div class="gaz-card-title">🪑 IL RIMPIANTO IN PANCHINA (I Gol lasciati fuori)</div>
-          ${report.gufataPanchina.map(g => `<div style="margin-bottom:6px;">• <strong>${g.mister}</strong>: ${g.rimpianto}</div>`).join('')}
+          <div class="gaz-card-title">🪑 IL RIMPIANTO IN PANCHINA</div>
+          ${report.gufataPanchina.map(g => `<div style="margin-bottom:4px;">• <strong>${g.mister}</strong>: ${g.rimpianto}</div>`).join('')}
         </div>
 
         <div class="gaz-card">
-          <div class="gaz-card-title">✍️ IL PAGELLONE DEL DIRETTORE</div>
-          ${report.pagellone.map(p => `<div style="margin-bottom:6px;"><strong>${p.nome} (Voto ${p.voto})</strong>: ${p.commento}</div>`).join('')}
+          <div class="gaz-card-title">✍️ PAGELLONE</div>
+          ${report.pagellone.map(p => `<div style="margin-bottom:4px;"><strong>${p.nome} (Voto ${p.voto})</strong>: ${p.commento}</div>`).join('')}
         </div>
       `;
     }
     document.getElementById('gazzettaModal').style.display = 'flex';
   };
 
-  // Chiusura di tutti i modali
+  // Chiusura Modali
   document.getElementById('closeModal').onclick = () => document.getElementById('lineupModal').style.display = 'none';
   document.getElementById('closeRosterModal').onclick = () => document.getElementById('rosterModal').style.display = 'none';
   document.getElementById('closeGazzettaModal').onclick = () => document.getElementById('gazzettaModal').style.display = 'none';
@@ -1391,7 +1382,7 @@
     drawPitch(activeMatch.away11);
   };
 
-  // Navigazione Giornate (1 - 36)
+  // Navigazione Giornate
   document.getElementById('prevBtn').onclick = () => {
     if (currentRound > 1) { currentRound--; renderRound(currentRound); }
   };
@@ -1399,7 +1390,7 @@
     if (currentRound < 36) { currentRound++; renderRound(currentRound); }
   };
 
-  // Inizializzazione automatica
+  // Avvio
   renderRound(currentRound);
 </script>
 </body>

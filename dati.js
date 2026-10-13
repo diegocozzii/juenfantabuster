@@ -298,7 +298,7 @@ const GAZZETTA_DATA = {
       {
         nome: "Krstovic (Young Girls)",
         punti: "16.0",
-        motivazione: "Tripletta monumentale e prestazione da dominatore dell'area di rigore: voto 16 da fantascienza!"
+        motivazione: "Prestazione da dominatore dell'area di rigore: voto 16 da fantascienza!"
       },
       {
         nome: "De Bruyne (Vannachester City)",

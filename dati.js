@@ -314,7 +314,7 @@ const GAZZETTA_DATA = {
     gufataPanchina: [
       {
         mister: "FC SCROTONE",
-        rimpianto: "Vince 3-1 facendo 80 punti, ma in panchina aveva Maldini (10 ⚽), Pinamonti (10 ⚽) e Tavares (10 ⚽)! Poteva infrangere la barriera dei 90."
+        rimpianto: "Vince 3-1 facendo 80 punti, ma in panchina aveva Pinamonti (10 ⚽) e Tavares (10 ⚽)! Poteva infrangere la barriera dei 90."
       },
       {
         mister: "FC ETTANERA",
@@ -323,9 +323,9 @@ const GAZZETTA_DATA = {
     ],
     pagellone: [
       { nome: "FC SCROTONE", voto: "9", commento: "80 punti tondi tondi, vittoria per 3-1 a casa di Nico e prova di forza devastante." },
-      { nome: "FC ETTANERA", voto: "8.5", commento: "Ciotto batte pure le Young Girls nonostante i 3 gol di Krstovic. Cinismo ai massimi livelli." },
+      { nome: "FC ETTANERA", voto: "8.5", commento: "Ciotto batte pure le Young Girls nonostante la super prestazione di Krstovic. Cinismo ai massimi livelli." },
       { nome: "VANNACHESTER CITY", voto: "7.5", commento: "De Bruyne sale in cattedra e scaccia la crisi espugnando il fortino del Borussia." },
-      { nome: "TOTORÍINO", voto: "6.5", commento: "Prestazione modesta (66.5) ma aiutata dal rosso di Malen che gli regala 3 punti di platino." },
+      { nome: "TOTORÍINO", voto: "6.5", commento: "Prestazione modesta (66.5) ma aiutata dal rosso di Malen che gli regala 3 punti d'oro." },
       { nome: "NDICKAZZATE", voto: "5", commento: "Il dio del fanta toglie e non restituisce: Malen rovina tutto e la beffa fa malissimo." }
     ]
   }

@@ -235,7 +235,7 @@ const TOP_FLOP_ROUNDS = {
         { name: "Ekkelenkamp", team: "ETT", fv: "10.0 ⚽", panca: false }
       ],
       att: [
-        { name: "Krstovic", team: "YG", fv: "16.0 ⚽⚽⚽", panca: false },
+        { name: "Krstovic", team: "YG", fv: "16.0 ⚽⚽", panca: false },
         { name: "Thuram", team: "SCR", fv: "10.0 ⚽", panca: false },
         { name: "Kolo Muani", team: "JAG", fv: "9.0 ⚽", panca: false }
       ]
@@ -973,7 +973,7 @@ const MATCH_DATA = {
           { name: "Politano", v: "SV", fv: "SV" }
         ],
         att: [
-          { name: "Krstovic", v: "8", fv: "16 ⚽⚽⚽" },
+          { name: "Krstovic", v: "8", fv: "16 ⚽⚽" },
           { name: "Berardi", v: "5.5", fv: "5 🟨" },
           { name: "Dybala (C)", v: "6", fv: "6" }
         ],

@@ -229,7 +229,7 @@ const TOP_FLOP_ROUNDS = {
         { name: "Miranda J.", team: "SCR", fv: "6.5", panca: false }
       ],
       cen: [
-        { name: "De Bruyne", team: "VAN", fv: "14.5 ⚽", panca: false },
+        { name: "De Bruyne", team: "VAN", fv: "14.5 ⚽⚽", panca: false },
         { name: "Orsolini", team: "ETT", fv: "10.5 ⚽", panca: false },
         { name: "Rabiot", team: "NDI", fv: "10.0 ⚽", panca: false },
         { name: "Ekkelenkamp", team: "ETT", fv: "10.0 ⚽", panca: false }
@@ -303,7 +303,7 @@ const GAZZETTA_DATA = {
       {
         nome: "De Bruyne (Vannachester City)",
         punti: "14.5",
-        motivazione: "Gol, assist e magie a tutto campo per rialzare la testa e regalare il 2-1 pesantissimo a Ste sul Borussia."
+        motivazione: "Doppietta e magie a tutto campo per rialzare la testa e regalare il 2-1 pesantissimo a Ste sul Borussia."
       }
     ],
     topScore: { squadra: "FC SCROTONE", punti: "80.0" },
@@ -846,7 +846,7 @@ const MATCH_DATA = {
           { name: "Lucumi", v: "5.5", fv: "5.5" }
         ],
         cen: [
-          { name: "De Bruyne", v: "7.5", fv: "14.5 ⚽" },
+          { name: "De Bruyne", v: "7.5", fv: "14.5 ⚽⚽" },
           { name: "Paz N. (C)", v: "6", fv: "6" },
           { name: "Chukwueze", v: "5.5", fv: "5.5" }
         ],

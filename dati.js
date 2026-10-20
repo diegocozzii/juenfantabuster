@@ -259,6 +259,46 @@ const TOP_FLOP_ROUNDS = {
         { name: "Douvikas", team: "SCR", fv: "5.5", panca: false }
       ]
     }
+  },
+  5: {
+    top11: {
+      por: [{ name: "Stankovic F.", team: "BPD", fv: "13.0 🧤", panca: true }],
+      dif: [
+        { name: "Carlos Augusto", team: "BPD", fv: "12.0 ⚽", panca: false },
+        { name: "Gaspar K.", team: "TOT", fv: "10.5 ⚽", panca: true },
+        { name: "Gila", team: "NDI", fv: "10.0 ⚽", panca: false }
+      ],
+      cen: [
+        { name: "Rabiot", team: "NDI", fv: "12.0 ⚽", panca: false },
+        { name: "Paz N.", team: "VAN", fv: "12.0 ⚽", panca: false },
+        { name: "Calò", team: "TOT", fv: "11.5 ⚽", panca: true },
+        { name: "Isaksen", team: "ETT", fv: "11.0 ⚽", panca: false }
+      ],
+      att: [
+        { name: "Raimondo", team: "YG", fv: "18.5 ⚽⚽⚽", panca: false },
+        { name: "Varela G.", team: "BPD", fv: "16.5 ⚽⚽", panca: false },
+        { name: "Simeone", team: "BPD", fv: "15.0 ⚽⚽", panca: true }
+      ]
+    },
+    flop11: {
+      por: [{ name: "Caprile", team: "JAG", fv: "1.5", panca: false }],
+      dif: [
+        { name: "Mina", team: "VAN", fv: "4.0", panca: false },
+        { name: "Obert", team: "JAG", fv: "4.0", panca: true },
+        { name: "Bremer", team: "VAN", fv: "4.5", panca: false }
+      ],
+      cen: [
+        { name: "De Bruyne", team: "VAN", fv: "2.0 🟥", panca: false },
+        { name: "Ekkelenkamp", team: "ETT", fv: "4.5", panca: false },
+        { name: "Ederson D.S.", team: "NDI", fv: "4.5 🟨", panca: false },
+        { name: "Maldini", team: "SCR", fv: "5.0", panca: false }
+      ],
+      att: [
+        { name: "Kolo Muani", team: "JAG", fv: "5.0", panca: false },
+        { name: "Davis K.", team: "ETT", fv: "5.0", panca: false },
+        { name: "Laurientè", team: "BPD", fv: "5.5", panca: false }
+      ]
+    }
   }
 };
 
@@ -327,6 +367,48 @@ const GAZZETTA_DATA = {
       { nome: "VANNACHESTER CITY", voto: "7.5", commento: "De Bruyne sale in cattedra e scaccia la crisi espugnando il fortino del Borussia." },
       { nome: "TOTORÍINO", voto: "6.5", commento: "Prestazione modesta (66.5) ma aiutata dal rosso di Malen che gli regala 3 punti d'oro." },
       { nome: "NDICKAZZATE", voto: "5", commento: "Il dio del fanta toglie e non restituisce: Malen rovina tutto e la beffa fa malissimo." }
+    ]
+  },
+  5: {
+    titolo: "VALANGA BORUSSIA: 89 PUNTI! RAIMONDO MOSTRUOSO (18.5), CROLLO TOTALE DI CIOTTO (55 PT)",
+    sommario: "Giornata 5 pirotecnica e record infranti: Marra devasta il Totoríino stampando uno storico 89! Raimondo demolisce Nico con una tripletta spaziale, Scrotone ne rifila 3 a Ste e Campa asfalta FC Ettanera, che sprofonda nel peggior punteggio della stagione.",
+    mvps: [
+      {
+        nome: "Raimondo (Young Girls)",
+        punti: "18.5",
+        motivazione: "Tripletta da marziano e voto mostruoso di 18.5: prestazione leggendaria che annienta Jagerbomberas da solo!"
+      },
+      {
+        nome: "Varela G. (Borussia Pdortmund)",
+        punti: "16.5",
+        motivazione: "Doppietta spaziale, assist e dominio totale per guidare il Borussia allo storico punteggio record di 89!"
+      }
+    ],
+    topScore: { squadra: "BORUSSIA PDORTMUND", punti: "89.0" },
+    fantasfiga: {
+      squadra: "FC ETTANERA (55.0 pt - Peggior Punteggio della Lega)",
+      descrizione: "Caporetto totale per Ciotto: la squadra non scende in campo, Baturina non gioca, Wesley esce senza voto, Ekkelenkamp sprofonda con un 4.5 e, nonostante il gol di Isaksen, tocca il punto più basso della lega con soli 55 punti complessivi!"
+    },
+    gufataPanchina: [
+      {
+        mister: "BORUSSIA PDORTMUND",
+        rimpianto: "Vince 4-1 facendo 89 punti, ma in panchina aveva pure Simeone con doppietta (15 pt) e Stankovic con rigore parato (13 pt)! Poteva superare i 100 punti!"
+      },
+      {
+        mister: "TOTORÍINO",
+        rimpianto: "Ne prende 4 da Marra, ma in panchina teneva Calò da 11.5 (gol), Gaspar da 10.5 (gol) e Liberali da 10 (gol)! Quasi 35 punti sprecati tra le riserve."
+      },
+      {
+        mister: "JAGERBOMBERAS",
+        rimpianto: "Bonny segna e prende 10 in panchina mentre Kolo Muani fa 5 ed Esposito prende il giallo."
+      }
+    ],
+    pagellone: [
+      { nome: "BORUSSIA PDORTMUND", voto: "10", commento: "89 punti storici, 4-1 sul Totoríino e primato blindato. Macchina da guerra." },
+      { nome: "YOUNG GIRLS", voto: "9.5", commento: "Raimondo da Playstation (18.5) e 3-0 secco a Nico: spettacolo puro." },
+      { nome: "FC SCROTONE", voto: "8.5", commento: "Altro 3-0 e oltre 80 punti sul campo: Festa vola in alto." },
+      { nome: "NDICKAZZATE", voto: "7.5", commento: "Gila e Rabiot regalano una vittoria agevole su un'Ettanera fantasma." },
+      { nome: "FC ETTANERA", voto: "4", commento: "Peggior punteggio stagionale (55 pt): blackout inspiegabile per Ciotto." }
     ]
   }
 };
@@ -800,10 +882,6 @@ const MATCH_DATA = {
       away11: null
     }
   ],
-
-  // -------------------------------------------------------------
-  // GIORNATA 4 UFFICIALE
-  // -------------------------------------------------------------
   4: [
     // MATCH 1: BORUSSIA PDORTMUND vs VANNACHESTER CITY (1 - 2)
     {
@@ -1045,6 +1123,299 @@ const MATCH_DATA = {
           { r: "C", name: "Thorstvedt", v: "5.5", fv: "5 🟨 (Sub)" }, { r: "A", name: "Maldini", v: "7", fv: "10 ⚽ (Sub)" },
           { r: "A", name: "De Ketelaere", v: "6", fv: "6" }, { r: "A", name: "Pinamonti", v: "7", fv: "10 ⚽" },
           { r: "D", name: "Bernasconi", v: "6", fv: "6" }, { r: "D", name: "Tavares N.", v: "7", fv: "10 ⚽" }
+        ]
+      }
+    }
+  ],
+  5: [
+    // MATCH 1: YOUNG GIRLS vs JAGERBOMBERAS (3 - 0)
+    {
+      home: "YOUNG GIRLS", away: "JAGERBOMBERAS", score: "3 - 0", homeFanta: "82.5", awayFanta: "64.5",
+      home11: {
+        modulo: "4-3-3",
+        por: [{ name: "Svilar", v: "-", fv: "-" }],
+        dif: [
+          { name: "Akanji", v: "6", fv: "6" },
+          { name: "Bastoni", v: "6", fv: "6" },
+          { name: "Tiago Gabriel", v: "7", fv: "7" },
+          { name: "Mancini", v: "-", fv: "-" }
+        ],
+        cen: [
+          { name: "Frattesi", v: "6", fv: "6" },
+          { name: "Politano", v: "6", fv: "6" },
+          { name: "Pulisic", v: "6.5", fv: "6.5" }
+        ],
+        att: [
+          { name: "Krstovic", v: "6.5", fv: "9.5 ⚽" },
+          { name: "Raimondo", v: "8.5", fv: "18.5 ⚽⚽⚽" },
+          { name: "Dybala (C)", v: "-", fv: "-" }
+        ],
+        bench: [
+          { r: "P", name: "Milinkovic-Savic", v: "-", fv: "-" },
+          { r: "D", name: "Heggem", v: "-", fv: "-" },
+          { r: "D", name: "Valeri", v: "5.5", fv: "5.5 (Sub)" },
+          { r: "C", name: "Modric", v: "6.5", fv: "6.5" },
+          { r: "C", name: "Baldanzi", v: "-", fv: "-" },
+          { r: "C", name: "Cristante", v: "-", fv: "-" },
+          { r: "C", name: "Rowe", v: "5", fv: "5" },
+          { r: "A", name: "Berardi", v: "7", fv: "10 ⚽ (Sub)" },
+          { r: "A", name: "Scamacca", v: "6", fv: "6" },
+          { r: "A", name: "Yeboah J.", v: "6", fv: "6" },
+          { r: "D", name: "Kossounou", v: "-", fv: "-" },
+          { r: "D", name: "N'Dicka", v: "6", fv: "6" }
+        ]
+      },
+      away11: {
+        modulo: "4-3-3",
+        por: [{ name: "Caprile", v: "5.5", fv: "1.5" }],
+        dif: [
+          { name: "Kempf", v: "6.5", fv: "6.5" },
+          { name: "Valle", v: "6.5", fv: "7 🟨" },
+          { name: "Kalulu", v: "5.5", fv: "5.5" },
+          { name: "Dimarco (C)", v: "6", fv: "6" }
+        ],
+        cen: [
+          { name: "Calhanoglu", v: "6", fv: "6" },
+          { name: "McKennie", v: "5.5", fv: "5.5" },
+          { name: "Adzic", v: "-", fv: "-" }
+        ],
+        att: [
+          { name: "Esposito F.P.", v: "5.5", fv: "5 🟨" },
+          { name: "Kolo Muani", v: "5", fv: "5" },
+          { name: "Adams A.", v: "7", fv: "10 ⚽" }
+        ],
+        bench: [
+          { r: "P", name: "Martinez Jo.", v: "6", fv: "5" },
+          { r: "P", name: "Falcone", v: "6", fv: "7 🧤" },
+          { r: "D", name: "Gallo", v: "7", fv: "8" },
+          { r: "D", name: "Obert", v: "4", fv: "4" },
+          { r: "D", name: "Marusic", v: "-", fv: "-" },
+          { r: "D", name: "Kelly L.", v: "-", fv: "-" },
+          { r: "C", name: "Douglas Luiz", v: "5.5", fv: "5.5 (Sub)" },
+          { r: "C", name: "Mkhitaryan", v: "6.5", fv: "6.5" },
+          { r: "C", name: "Loftus-Cheek", v: "6", fv: "6" },
+          { r: "A", name: "Vitinha O.", v: "5.5", fv: "5.5" },
+          { r: "A", name: "Bonny", v: "7", fv: "10 ⚽" },
+          { r: "A", name: "Zapata D.", v: "SV", fv: "SV" }
+        ]
+      }
+    },
+
+    // MATCH 2: FC SCROTONE vs VANNACHESTER CITY (3 - 0)
+    {
+      home: "FC SCROTONE", away: "VANNACHESTER CITY", score: "3 - 0", homeFanta: "80.5", awayFanta: "63.5",
+      home11: {
+        modulo: "4-3-3",
+        por: [{ name: "Meret", v: "6", fv: "5" }],
+        dif: [
+          { name: "Tavares N.", v: "7", fv: "8" },
+          { name: "Miranda J.", v: "6.5", fv: "7 🟨" },
+          { name: "Ramon", v: "7", fv: "6.5 🟨" },
+          { name: "Bellanova", v: "6", fv: "7" }
+        ],
+        cen: [
+          { name: "Gudmundsson A.", v: "-", fv: "-" },
+          { name: "Samardzic", v: "5.5", fv: "5.5" },
+          { name: "Cissè A.", v: "-", fv: "-" }
+        ],
+        att: [
+          { name: "Maldini", v: "5", fv: "5" },
+          { name: "Thuram (C)", v: "7", fv: "9.5 ⚽🟨" },
+          { name: "Douvikas", v: "7", fv: "10 ⚽" }
+        ],
+        bench: [
+          { r: "P", name: "Provedel", v: "-", fv: "-" },
+          { r: "P", name: "Paleari", v: "-", fv: "-" },
+          { r: "D", name: "Gabbia", v: "-", fv: "-" },
+          { r: "C", name: "Caqueret", v: "6.5", fv: "7.5 (Sub)" },
+          { r: "C", name: "Messias", v: "5.5", fv: "5.5 (Sub)" },
+          { r: "D", name: "Zortea", v: "5.5", fv: "5.5" },
+          { r: "C", name: "Thorstvedt", v: "6.5", fv: "9.5 ⚽" },
+          { r: "A", name: "Kean", v: "-", fv: "-" },
+          { r: "A", name: "De Ketelaere", v: "5", fv: "5" },
+          { r: "A", name: "Pinamonti", v: "6", fv: "7" },
+          { r: "D", name: "Bernasconi", v: "5", fv: "5" },
+          { r: "C", name: "Zambo Anguissa", v: "-", fv: "-" }
+        ]
+      },
+      away11: {
+        modulo: "4-4-2",
+        por: [{ name: "Vicario", v: "6", fv: "3" }],
+        dif: [
+          { name: "Di Lorenzo", v: "5.5", fv: "5.5" },
+          { name: "Mina", v: "4", fv: "4" },
+          { name: "Bremer", v: "4.5", fv: "4.5" },
+          { name: "Hermoso", v: "6", fv: "6" }
+        ],
+        cen: [
+          { name: "De Bruyne", v: "5", fv: "2 🟥" },
+          { name: "Paz N. (C)", v: "7.5", fv: "12 ⚽🟨" },
+          { name: "Mora", v: "6", fv: "6" },
+          { name: "Chukwueze", v: "6", fv: "6" }
+        ],
+        att: [
+          { name: "Santos A.", v: "6.5", fv: "6.5" },
+          { name: "Hojlund", v: "6.5", fv: "6.5" }
+        ],
+        bench: [
+          { r: "P", name: "Muric", v: "4", fv: "1" },
+          { r: "P", name: "De Gea", v: "5.5", fv: "2.5" },
+          { r: "D", name: "Lucumi", v: "5", fv: "5" },
+          { r: "D", name: "Vasquez", v: "5.5", fv: "5 🟨" },
+          { r: "D", name: "Pavard", v: "-", fv: "-" },
+          { r: "C", name: "Lobotka", v: "6", fv: "6" },
+          { r: "C", name: "Fagioli", v: "6", fv: "6" },
+          { r: "C", name: "Ferguson", v: "5.5", fv: "5.5" },
+          { r: "A", name: "Tourè E.", v: "5.5", fv: "5.5" },
+          { r: "A", name: "Raspadori", v: "-", fv: "-" },
+          { r: "A", name: "Diao", v: "-", fv: "-" },
+          { r: "A", name: "Ekhator", v: "-", fv: "-" }
+        ]
+      }
+    },
+
+    // MATCH 3: TOTORÍINO vs BORUSSIA PDORTMUND (1 - 4)
+    {
+      home: "TOTORÍINO", away: "BORUSSIA PDORTMUND", score: "1 - 4", homeFanta: "68.5", awayFanta: "89",
+      home11: {
+        modulo: "4-4-2",
+        por: [{ name: "Maignan", v: "6.5", fv: "4.5" }],
+        dif: [
+          { name: "Pavlovic", v: "6", fv: "6" },
+          { name: "Rrahmani", v: "5", fv: "5" },
+          { name: "Jimenez A.", v: "5.5", fv: "5.5" },
+          { name: "Celik", v: "5", fv: "5" }
+        ],
+        cen: [
+          { name: "Zaccagni", v: "6.5", fv: "7 🟨" },
+          { name: "Conceicao (C)", v: "5.5", fv: "5.5" },
+          { name: "Mastantuono", v: "6", fv: "5.5 🟨" },
+          { name: "Barella", v: "6.5", fv: "7.5" }
+        ],
+        att: [
+          { name: "Adams C.", v: "7", fv: "10 ⚽" },
+          { name: "Esposito Se.", v: "6.5", fv: "7.5" }
+        ],
+        bench: [
+          { r: "P", name: "Mandas", v: "6", fv: "7 🧤" },
+          { r: "D", name: "Dodò", v: "6", fv: "6" },
+          { r: "D", name: "Gaspar K.", v: "7.5", fv: "10.5 ⚽" },
+          { r: "D", name: "Zappacosta", v: "5.5", fv: "5.5" },
+          { r: "D", name: "Spence", v: "-", fv: "-" },
+          { r: "C", name: "Diouf", v: "6.5", fv: "6.5" },
+          { r: "C", name: "Calò", v: "7.5", fv: "11.5 ⚽" },
+          { r: "C", name: "Saelemaekers", v: "-", fv: "-" },
+          { r: "C", name: "Liberali", v: "7", fv: "10 ⚽" },
+          { r: "A", name: "Martinez L.", v: "-", fv: "-" },
+          { r: "A", name: "Colombo", v: "-", fv: "-" },
+          { r: "A", name: "Kevin Carlos", v: "5.5", fv: "5.5" }
+        ]
+      },
+      away11: {
+        modulo: "4-3-3",
+        por: [{ name: "Butez", v: "6.5", fv: "5.5" }],
+        dif: [
+          { name: "Carlos Augusto", v: "7.5", fv: "12 ⚽🟨" },
+          { name: "Bisseck", v: "6", fv: "6" },
+          { name: "Couto", v: "-", fv: "-" },
+          { name: "Solet", v: "4.5", fv: "4.5" }
+        ],
+        cen: [
+          { name: "McTominay", v: "5.5", fv: "5.5" },
+          { name: "Moreira", v: "7", fv: "8" },
+          { name: "Zielinski", v: "6.5", fv: "7.5" }
+        ],
+        att: [
+          { name: "Castro S. (C)", v: "7", fv: "10 ⚽" },
+          { name: "Laurientè", v: "5.5", fv: "5.5" },
+          { name: "Varela G.", v: "8.5", fv: "16.5 ⚽⚽" }
+        ],
+        bench: [
+          { r: "D", name: "Bartesaghi", v: "-", fv: "-" },
+          { r: "D", name: "Delprato", v: "5", fv: "5 (Sub)" },
+          { r: "C", name: "Vlasic", v: "6.5", fv: "6.5" },
+          { r: "C", name: "Mandragora", v: "6", fv: "6" },
+          { r: "C", name: "Bernardeschi", v: "6", fv: "5.5 🟨" },
+          { r: "C", name: "Casadei", v: "6", fv: "6" },
+          { r: "A", name: "Ramos G.", v: "6.5", fv: "6.5" },
+          { r: "A", name: "Simeone", v: "8", fv: "15 ⚽⚽" },
+          { r: "A", name: "Pellegrino M.", v: "5", fv: "5" },
+          { r: "P", name: "Stankovic F.", v: "8", fv: "13 🧤" },
+          { r: "D", name: "Kristensen T.", v: "-", fv: "-" },
+          { r: "D", name: "Martin", v: "-", fv: "-" }
+        ]
+      }
+    },
+
+    // MATCH 4: NDICKAZZATE vs FC ETTANERA (2 - 0)
+    {
+      home: "NDICKAZZATE", away: "FC ETTANERA", score: "2 - 0", homeFanta: "72", awayFanta: "55",
+      home11: {
+        modulo: "4-4-2",
+        por: [{ name: "Okoye", v: "6.5", fv: "3.5" }],
+        dif: [
+          { name: "Spinazzola", v: "5.5", fv: "5.5" },
+          { name: "Ostigard", v: "5.5", fv: "5 🟨" },
+          { name: "Gila", v: "7", fv: "10 ⚽" },
+          { name: "Vojvoda", v: "5", fv: "5" }
+        ],
+        cen: [
+          { name: "Da Cunha", v: "6", fv: "6" },
+          { name: "Rabiot", v: "7.5", fv: "12 ⚽🟨" },
+          { name: "Taylor K.", v: "6.5", fv: "6 🟨" },
+          { name: "Ederson D.S.", v: "5", fv: "4.5 🟨" }
+        ],
+        att: [
+          { name: "Piccoli", v: "6", fv: "6" },
+          { name: "Soulè (C)", v: "7", fv: "6.5 🟨" }
+        ],
+        bench: [
+          { r: "P", name: "Bijlow", v: "6", fv: "4" },
+          { r: "D", name: "Cambiaso", v: "6", fv: "6" },
+          { r: "D", name: "Halhal", v: "6.5", fv: "6.5" },
+          { r: "D", name: "Stones", v: "-", fv: "-" },
+          { r: "C", name: "Perrone", v: "6", fv: "6" },
+          { r: "C", name: "Colpani", v: "6.5", fv: "6.5" },
+          { r: "A", name: "Cutrone", v: "SV", fv: "SV" },
+          { r: "C", name: "Gonzalez N.", v: "5", fv: "5" },
+          { r: "C", name: "Vergara", v: "-", fv: "-" },
+          { r: "A", name: "Dovbyk", v: "5.5", fv: "5.5" },
+          { r: "A", name: "Malen", v: "-", fv: "-" },
+          { r: "A", name: "Dia", v: "-", fv: "-" }
+        ]
+      },
+      away11: {
+        modulo: "4-4-2",
+        por: [{ name: "Carnesecchi", v: "6.5", fv: "6.5 🧤" }],
+        dif: [
+          { name: "Dragusin", v: "5", fv: "5" },
+          { name: "Wesley", v: "SV", fv: "SV" },
+          { name: "Molina N.", v: "-", fv: "-" },
+          { name: "Valdepenas", v: "5.5", fv: "5.5" }
+        ],
+        cen: [
+          { name: "Bernabè", v: "6", fv: "6" },
+          { name: "Ekkelenkamp", v: "4.5", fv: "4.5" },
+          { name: "Baturina (C)", v: "-", fv: "-" },
+          { name: "Isaksen", v: "7", fv: "11 ⚽" }
+        ],
+        att: [
+          { name: "Davis K.", v: "5", fv: "5" },
+          { name: "Ghedjemis", v: "6.5", fv: "6.5" }
+        ],
+        bench: [
+          { r: "P", name: "Skorupski", v: "6", fv: "3" },
+          { r: "P", name: "Sportiello", v: "-", fv: "-" },
+          { r: "A", name: "Bowie", v: "5.5", fv: "5 🟨" },
+          { r: "D", name: "Scalvini", v: "-", fv: "-" },
+          { r: "C", name: "Alajbegovic", v: "6", fv: "6 (Sub)" },
+          { r: "D", name: "Hien", v: "-", fv: "-" },
+          { r: "C", name: "Atta", v: "-", fv: "-" },
+          { r: "D", name: "Chalobah T.", v: "SV", fv: "SV" },
+          { r: "C", name: "Orsolini", v: "-", fv: "-" },
+          { r: "C", name: "Zaniolo", v: "-", fv: "-" },
+          { r: "A", name: "Bobcek", v: "-", fv: "-" },
+          { r: "D", name: "Holm", v: "-", fv: "-" }
         ]
       }
     }
